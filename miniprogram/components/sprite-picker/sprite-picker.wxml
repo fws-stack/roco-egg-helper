@@ -1,0 +1,64 @@
+<view class="picker-overlay {{visible ? 'picker-overlay--show' : ''}}" catchtap="close">
+  <view class="picker-panel" catchtap="">
+    <!-- 头部 -->
+    <view class="picker-header">
+      <text class="picker-title">{{title}}</text>
+      <view class="picker-close" bindtap="close">
+        <text class="text-lighter">✕</text>
+      </view>
+    </view>
+
+    <!-- 搜索框 -->
+    <view class="picker-search">
+      <input
+        class="picker-search__input"
+        placeholder="{{placeholder}}"
+        value="{{keyword}}"
+        bindinput="onSearchInput"
+        focus="{{visible}}"
+      />
+    </view>
+
+    <!-- 属性筛选 -->
+    <scroll-view class="picker-filters" scroll-x>
+      <view
+        class="picker-filter__item {{elementFilter === -1 ? 'picker-filter__item--active' : ''}}"
+        data-element="-1"
+        bindtap="onFilterByElement"
+      >
+        <text>全部</text>
+      </view>
+      <view
+        wx:for="{{['火','水','草','电','冰','土','石','机械','普通','特殊']}}"
+        wx:key="*this"
+        wx:for-index="idx"
+        class="picker-filter__item {{elementFilter === idx ? 'picker-filter__item--active' : ''}}"
+        data-element="{{idx}}"
+        bindtap="onFilterByElement"
+      >
+        <text>{{item}}</text>
+      </view>
+    </scroll-view>
+
+    <!-- 精灵列表 -->
+    <scroll-view class="picker-list" scroll-y>
+      <block wx:if="{{filteredList.length > 0}}">
+        <view
+          wx:for="{{filteredList}}"
+          wx:key="id"
+          class="picker-list__item"
+          data-id="{{item.id}}"
+          bindtap="onSelect"
+        >
+          <sprite-card spriteId="{{item.id}}" size="small" tappable="{{false}}" />
+        </view>
+      </block>
+      <empty-state
+        wx:else
+        icon="search"
+        text="未找到匹配精灵"
+        subtext="换个关键词试试"
+      />
+    </scroll-view>
+  </view>
+</view>

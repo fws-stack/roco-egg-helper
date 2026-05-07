@@ -1,0 +1,27 @@
+<view class="sprite-card {{size === 'small' ? 'sprite-card--small' : ''}}" bindtap="onTap" wx:if="{{sprite}}">
+  <view class="sprite-card__avatar">
+    <image
+      class="sprite-card__img"
+      src="/images/sprites/{{spriteId}}.png"
+      mode="aspectFit"
+    />
+  </view>
+  <view class="sprite-card__info">
+    <text class="sprite-card__name">{{sprite.name}}</text>
+    <view class="sprite-card__tags">
+      <text class="tag tag-{{sprite.elementClass}}">{{sprite.elementName}}</text>
+      <text class="sprite-card__rarity" wx:if="{{showRarity && sprite.rarityStars}}">{{sprite.rarityStars}}</text>
+    </view>
+  </view>
+  <view class="sprite-card__arrow" wx:if="{{tappable}}">
+    <text class="text-lighter">›</text>
+  </view>
+</view>
+<view class="sprite-card sprite-card--empty" wx:else>
+  <view class="sprite-card__avatar sprite-card__avatar--empty">
+    <text class="text-lighter">?</text>
+  </view>
+  <view class="sprite-card__info">
+    <text class="text-light">选择精灵</text>
+  </view>
+</view>

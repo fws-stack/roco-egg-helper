@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/forward/forward",
+    "pages/reverse/reverse",
+    "pages/egg-query/egg-query",
+    "pages/sprite-detail/sprite-detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "洛克孵蛋查询",
+    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4A90D9",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/forward/forward",
+        "text": "正向查询",
+        "iconPath": "images/tabbar/forward.png",
+        "selectedIconPath": "images/tabbar/forward-active.png"
+      },
+      {
+        "pagePath": "pages/reverse/reverse",
+        "text": "反向查询",
+        "iconPath": "images/tabbar/reverse.png",
+        "selectedIconPath": "images/tabbar/reverse-active.png"
+      },
+      {
+        "pagePath": "pages/egg-query/egg-query",
+        "text": "蛋参数查询",
+        "iconPath": "images/tabbar/egg.png",
+        "selectedIconPath": "images/tabbar/egg-active.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "sprite-card": "/components/sprite-card/sprite-card",
+    "sprite-picker": "/components/sprite-picker/sprite-picker",
+    "breeding-result": "/components/breeding-result/breeding-result",
+    "egg-result": "/components/egg-result/egg-result",
+    "empty-state": "/components/empty-state/empty-state"
+  }
+}

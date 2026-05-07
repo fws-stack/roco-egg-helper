@@ -1,0 +1,9 @@
+<view class="empty-state">
+  <view class="empty-state__icon">
+    <text wx:if="{{icon === 'search'}}" class="empty-state__emoji">🔍</text>
+    <text wx:elif="{{icon === 'box'}}" class="empty-state__emoji">📦</text>
+    <text wx:else class="empty-state__emoji">📭</text>
+  </view>
+  <text class="empty-state__text">{{text}}</text>
+  <text class="empty-state__subtext" wx:if="{{subtext}}">{{subtext}}</text>
+</view>

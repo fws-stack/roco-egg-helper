@@ -1,0 +1,70 @@
+.egg-result {
+  margin-top: 24rpx;
+}
+
+.egg-result__summary {
+  margin-bottom: 20rpx;
+}
+
+.egg-result__summary-text {
+  font-size: 26rpx;
+  color: var(--color-text-light);
+}
+
+.egg-result__item {
+  position: relative;
+  margin-bottom: 16rpx;
+  padding: 16rpx;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.egg-result__item--best {
+  border: 2rpx solid var(--color-primary);
+}
+
+.egg-result__badge {
+  position: absolute;
+  top: -1rpx;
+  right: 16rpx;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 20rpx;
+  padding: 2rpx 16rpx;
+  border-radius: 0 0 8rpx 8rpx;
+}
+
+.egg-result__detail {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid var(--color-border);
+}
+
+.egg-result__row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+  font-size: 24rpx;
+}
+
+.egg-result__label {
+  color: var(--color-text-light);
+  width: 120rpx;
+}
+
+.egg-result__value {
+  color: var(--color-text);
+  flex: 1;
+}
+
+.egg-result__check {
+  color: var(--color-danger);
+  font-weight: 600;
+  width: 40rpx;
+  text-align: right;
+}
+
+.egg-result__check--pass {
+  color: var(--color-success);
+}

@@ -1,0 +1,32 @@
+.egg-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.egg-input__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.egg-input__label {
+  font-size: 26rpx;
+  color: var(--color-text);
+  margin-bottom: 8rpx;
+}
+
+.egg-input__wrap {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  border: 1rpx solid var(--color-border);
+  overflow: hidden;
+}
+
+.egg-input__field {
+  flex: 1;
+  padding: 20rpx 24rpx;
+  font-size: 32rpx;
+  color: var(--color-text);
+}

@@ -1,0 +1,15 @@
+.reverse-select {
+  margin-bottom: 8rpx;
+}
+
+.reverse-select__label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--color-text);
+  display: block;
+}
+
+.forward-hint {
+  text-align: center;
+  margin-top: 40rpx;
+}

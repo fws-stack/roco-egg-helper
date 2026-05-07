@@ -1,0 +1,22 @@
+.forward-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+}
+
+.forward-select__item {
+  flex: 1;
+  max-width: 280rpx;
+}
+
+.forward-select__plus {
+  flex-shrink: 0;
+  font-size: 40rpx;
+  font-weight: 300;
+}
+
+.forward-hint {
+  text-align: center;
+  margin-top: 40rpx;
+}

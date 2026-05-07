@@ -1,0 +1,45 @@
+<view class="page-container">
+  <!-- 参数输入区 -->
+  <view class="card">
+    <text class="card-title">蛋的参数</text>
+    <text class="text-sm text-light" style="display:block;margin-bottom:24rpx;">输入蛋的长和重，自动判断是什么精灵</text>
+
+    <view class="egg-inputs">
+      <view class="egg-input__group">
+        <text class="egg-input__label">长</text>
+        <view class="egg-input__wrap">
+          <input
+            class="egg-input__field"
+            type="digit"
+            placeholder="输入长度"
+            value="{{size}}"
+            bindinput="onSizeInput"
+          />
+        </view>
+      </view>
+
+      <view class="egg-input__group">
+        <text class="egg-input__label">重</text>
+        <view class="egg-input__wrap">
+          <input
+            class="egg-input__field"
+            type="digit"
+            placeholder="输入重量"
+            value="{{weight}}"
+            bindinput="onWeightInput"
+          />
+        </view>
+      </view>
+    </view>
+
+    <button class="btn-primary mt-24" bindtap="onSubmit" style="width:100%;">查询</button>
+  </view>
+
+  <!-- 查询结果 -->
+  <egg-result
+    results="{{results}}"
+    inputSize="{{inputSize}}"
+    inputWeight="{{inputWeight}}"
+    hasQueried="{{hasQueried}}"
+  />
+</view>

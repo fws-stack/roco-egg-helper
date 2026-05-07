@@ -1,0 +1,40 @@
+<view class="egg-result">
+  <view wx:if="{{!hasQueried}}">
+    <empty-state icon="box" text="输入蛋的长和重开始查询" />
+  </view>
+
+  <view wx:if="{{hasQueried && results.length > 0}}">
+    <view class="egg-result__summary">
+      <text class="egg-result__summary-text">长 {{inputSize}} / 重 {{inputWeight}} 匹配到 {{results.length}} 个结果</text>
+    </view>
+
+    <view
+      wx:for="{{results}}"
+      wx:key="spriteId"
+      class="egg-result__item"
+    >
+      <view class="egg-result__badge" wx:if="{{index === 0}}">
+        <text>最佳匹配</text>
+      </view>
+
+      <sprite-card spriteId="{{item.spriteId}}" />
+
+      <view class="egg-result__detail">
+        <view class="egg-result__row">
+          <text class="egg-result__label">长范围</text>
+          <text class="egg-result__value">{{item.sizeMin}} - {{item.sizeMax}}</text>
+          <text class="egg-result__check {{item.sizeCheckClass}}">{{item.sizeCheck}}</text>
+        </view>
+        <view class="egg-result__row">
+          <text class="egg-result__label">重范围</text>
+          <text class="egg-result__value">{{item.weightMin}} - {{item.weightMax}}</text>
+          <text class="egg-result__check {{item.weightCheckClass}}">{{item.weightCheck}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{hasQueried && results.length === 0}}">
+    <empty-state icon="search" text="未找到匹配的精灵蛋" subtext="尝试调整长或重参数" />
+  </view>
+</view>

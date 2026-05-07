@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "sprite-card": "/components/sprite-card/sprite-card",
+    "empty-state": "/components/empty-state/empty-state"
+  }
+}

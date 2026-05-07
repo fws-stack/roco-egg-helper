@@ -1,0 +1,8 @@
+function toPctInt(prob) {
+  if (prob == null) return '--';
+  return (prob * 100).toFixed(0);
+}
+
+module.exports = {
+  toPctInt: toPctInt
+};

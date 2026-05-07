@@ -1,0 +1,56 @@
+<wxs module="fmt" src="./breeding-result.wxs" />
+<view class="breeding-result">
+  <!-- 正向查询结果 -->
+  <block wx:if="{{mode === 'forward'}}">
+    <view class="br-summary" wx:if="{{parentAName && parentBName}}">
+      <text class="br-summary__text">{{parentAName}} + {{parentBName}} 的孵蛋结果</text>
+    </view>
+
+    <block wx:if="{{results.length > 0}}">
+      <view
+        wx:for="{{results}}"
+        wx:key="childId"
+        class="br-item"
+      >
+        <sprite-card spriteId="{{item.childId}}" />
+        <view class="br-item__prob" wx:if="{{item.probability != null}}">
+          <view class="br-prob-bar">
+            <view class="br-prob-bar__fill" style="width: {{item.probability * 100}}%"></view>
+          </view>
+          <text class="br-prob-text">{{fmt.toPctInt(item.probability)}}%</text>
+        </view>
+      </view>
+    </block>
+    <empty-state wx:else icon="search" text="未找到该组合的孵蛋配方" />
+  </block>
+
+  <!-- 反向查询结果 -->
+  <block wx:if="{{mode === 'reverse'}}">
+    <view class="br-summary" wx:if="{{childName}}">
+      <text class="br-summary__text">可孵化出 {{childName}} 的父母组合</text>
+    </view>
+
+    <block wx:if="{{results.length > 0}}">
+      <view
+        wx:for="{{results}}"
+        wx:key="index"
+        class="br-item br-item--reverse"
+      >
+        <view class="br-parents">
+          <sprite-card spriteId="{{item.parentIds[0]}}" size="small" />
+          <text class="br-plus">+</text>
+          <sprite-card spriteId="{{item.parentIds[1]}}" size="small" />
+        </view>
+        <view class="br-item__prob" wx:if="{{item.probability != null}}">
+          <text class="br-prob-text">{{fmt.toPctInt(item.probability)}}%</text>
+        </view>
+      </view>
+    </block>
+    <empty-state wx:else icon="search" text="未找到该精灵的孵蛋配方" />
+  </block>
+
+  <!-- 加载中 -->
+  <view class="br-loading" wx:if="{{loading}}">
+    <text class="text-light">查询中...</text>
+  </view>
+</view>

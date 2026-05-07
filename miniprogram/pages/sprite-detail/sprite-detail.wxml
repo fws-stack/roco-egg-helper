@@ -1,0 +1,71 @@
+<view class="page-container" wx:if="{{sprite}}">
+  <!-- 精灵头部信息 -->
+  <view class="card sprite-header">
+    <view class="sprite-header__top">
+      <image
+        class="sprite-header__img"
+        src="/images/sprites/{{sprite.id}}.png"
+        mode="aspectFit"
+      />
+      <view class="sprite-header__info">
+        <text class="sprite-header__name">{{sprite.name}}</text>
+        <view class="sprite-header__tags mt-16">
+          <text class="tag tag-{{sprite.elementClass}}">{{sprite.elementName}}</text>
+          <text class="sprite-header__rarity">{{sprite.rarityStars}}</text>
+          <text class="text-sm text-light">（{{sprite.rarityName}}）</text>
+        </view>
+        <text class="sprite-header__desc mt-16" wx:if="{{sprite.description}}">{{sprite.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快捷操作 -->
+  <view class="card sprite-actions">
+    <button class="btn-primary" bindtap="goForward" style="margin-bottom:12rpx;">正查此精灵的孵化公式</button>
+    <button class="btn-primary" bindtap="goReverse" style="background:#4CAF50;">反查如何获得此精灵</button>
+  </view>
+
+  <!-- 作为子代的孵蛋信息 -->
+  <view class="card" wx:if="{{asChildResults.length > 0}}">
+    <text class="card-title">孵化出 {{sprite.name}} 的组合</text>
+    <view wx:for="{{asChildResults}}" wx:key="index" class="detail-breeding__item">
+      <view class="flex-row align-center">
+        <navigator url="/pages/sprite-detail/sprite-detail?id={{item.parentAId}}" class="detail-breeding__link">
+          {{item.parentAName}}
+        </navigator>
+        <text class="detail-breeding__plus"> + </text>
+        <navigator url="/pages/sprite-detail/sprite-detail?id={{item.parentBId}}" class="detail-breeding__link">
+          {{item.parentBName}}
+        </navigator>
+        <text class="detail-breeding__plus"> → </text>
+        <text class="detail-breeding__name text-bold">{{sprite.name}}</text>
+      </view>
+      <text class="text-sm text-light" wx:if="{{item.probability != null}}">概率 {{item.probText}}</text>
+    </view>
+  </view>
+
+  <!-- 作为父代的孵蛋信息 -->
+  <view class="card" wx:if="{{asParentResults.length > 0}}">
+    <text class="card-title">{{sprite.name}} 作为父代可孵化</text>
+    <view wx:for="{{asParentResults}}" wx:key="index" class="detail-breeding__item">
+      <view class="flex-row align-center">
+        <text class="detail-breeding__name text-bold">{{sprite.name}}</text>
+        <text class="detail-breeding__plus"> + </text>
+        <navigator url="/pages/sprite-detail/sprite-detail?id={{item.otherParentId}}" class="detail-breeding__link">
+          {{item.otherParentName}}
+        </navigator>
+        <text class="detail-breeding__plus"> → </text>
+        <navigator url="/pages/sprite-detail/sprite-detail?id={{item.childId}}" class="detail-breeding__link">
+          {{item.childName}}
+        </navigator>
+      </view>
+      <text class="text-sm text-light" wx:if="{{item.probability != null}}">概率 {{item.probText}}</text>
+    </view>
+  </view>
+
+  <empty-state
+    wx:if="{{asChildResults.length === 0 && asParentResults.length === 0}}"
+    icon="box"
+    text="暂无此精灵的孵蛋数据"
+  />
+</view>

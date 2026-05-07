@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "egg-result": "/components/egg-result/egg-result"
+  }
+}

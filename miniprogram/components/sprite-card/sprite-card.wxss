@@ -1,0 +1,83 @@
+.sprite-card {
+  display: flex;
+  align-items: center;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 20rpx 24rpx;
+  box-shadow: var(--shadow-card);
+}
+
+.sprite-card--small {
+  padding: 12rpx 16rpx;
+  border-radius: var(--radius-sm);
+}
+
+.sprite-card--empty {
+  opacity: 0.5;
+}
+
+.sprite-card__avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.sprite-card--small .sprite-card__avatar {
+  width: 56rpx;
+  height: 56rpx;
+  margin-right: 12rpx;
+}
+
+.sprite-card__avatar--empty {
+  background: var(--color-bg);
+}
+
+.sprite-card__img {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.sprite-card--small .sprite-card__img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.sprite-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sprite-card__name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--color-text);
+  display: block;
+  margin-bottom: 6rpx;
+}
+
+.sprite-card--small .sprite-card__name {
+  font-size: 24rpx;
+}
+
+.sprite-card__tags {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.sprite-card__rarity {
+  font-size: 18rpx;
+  color: var(--color-warning);
+}
+
+.sprite-card__arrow {
+  margin-left: 12rpx;
+  font-size: 36rpx;
+  flex-shrink: 0;
+}

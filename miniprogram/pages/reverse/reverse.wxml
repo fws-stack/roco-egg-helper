@@ -1,0 +1,27 @@
+<view class="page-container">
+  <!-- 目标精灵选择区 -->
+  <view class="reverse-select" bindtap="openPicker">
+    <text class="reverse-select__label mb-16">目标精灵</text>
+    <sprite-card spriteId="{{target.id || 0}}" />
+  </view>
+
+  <view class="forward-hint" wx:if="{{!target}}">
+    <text class="text-sm text-light">点击上方卡片选择目标精灵</text>
+  </view>
+
+  <!-- 查询结果 -->
+  <breeding-result
+    wx:if="{{target}}"
+    mode="reverse"
+    results="{{results}}"
+    childName="{{target.name}}"
+  />
+
+  <!-- 精灵选择器弹窗 -->
+  <sprite-picker
+    visible="{{pickerVisible}}"
+    title="选择目标精灵"
+    bind:select="onPickerSelect"
+    bind:close="onPickerClose"
+  />
+</view>
