@@ -1,0 +1,119 @@
+.evo-chain {
+  padding: 24rpx 0;
+}
+.evo-chain__title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+  padding: 0 24rpx;
+}
+.evo-chain__scroll {
+  width: 100%;
+  white-space: nowrap;
+}
+.evo-chain__track {
+  display: flex;
+  align-items: flex-start;
+  padding: 16rpx 24rpx;
+  min-width: 100%;
+}
+
+/* 节点 */
+.evo-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140rpx;
+  padding: 12rpx 8rpx;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.evo-node--current {
+  transform: scale(1.08);
+}
+.evo-node__avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8rpx;
+  position: relative;
+}
+.evo-node__avatar--normal { background: #C4B5A5; }
+.evo-node__avatar--grass { background: #4CAF50; }
+.evo-node__avatar--fire { background: #F44336; }
+.evo-node__avatar--water { background: #2196F3; }
+.evo-node__avatar--light { background: #FFC107; }
+.evo-node__avatar--earth { background: #795548; }
+.evo-node__avatar--ice { background: #00BCD4; }
+.evo-node__avatar--dragon { background: #9C27B0; }
+.evo-node__avatar--electric { background: #FFEB3B; }
+.evo-node__avatar--poison { background: #9C27B0; }
+.evo-node__avatar--bug { background: #8BC34A; }
+.evo-node__avatar--fighting { background: #FF5722; }
+.evo-node__avatar--flying { background: #87CEEB; }
+.evo-node__avatar--fairy { background: #E91E63; }
+.evo-node__avatar--ghost { background: #607D8B; }
+.evo-node__avatar--dark { background: #424242; }
+.evo-node__avatar--machine { background: #78909C; }
+.evo-node__avatar--magic { background: #BA68C8; }
+.evo-node--current .evo-node__avatar {
+  box-shadow: 0 0 0 6rpx rgba(74, 144, 217, 0.3);
+}
+.evo-node__img {
+  width: 64rpx;
+  height: 64rpx;
+}
+.evo-node__fallback {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+}
+.evo-node__name {
+  font-size: 22rpx;
+  color: #333;
+  text-align: center;
+  max-width: 130rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 连接器 */
+.evo-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100rpx;
+  flex-shrink: 0;
+  padding-top: 20rpx;
+}
+.evo-connector__arrow {
+  font-size: 28rpx;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+.evo-connector__cond {
+  margin-top: 4rpx;
+}
+.evo-connector__cond-text {
+  font-size: 18rpx;
+  color: var(--color-text-light);
+  background: #f0f0f0;
+  padding: 4rpx 8rpx;
+  border-radius: 6rpx;
+  text-align: center;
+  max-width: 160rpx;
+  display: inline-block;
+  white-space: normal;
+  word-break: break-all;
+}
+
+.evo-chain--empty {
+  padding: 32rpx;
+  text-align: center;
+}

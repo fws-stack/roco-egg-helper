@@ -1,0 +1,99 @@
+<view class="page-container">
+  <!-- 区域切换 -->
+  <view class="region-tabs">
+    <view
+      wx:for="{{regionTabs}}"
+      wx:key="key"
+      class="region-tab {{currentRegion === item.key ? 'region-tab--active' : ''}}"
+      bindtap="switchRegion"
+      data-key="{{item.key}}"
+    >
+      <text>{{item.label}}</text>
+    </view>
+  </view>
+
+  <!-- 元素筛选 -->
+
+  <!-- 搜索 -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索序号或名称"
+      value="{{searchKeyword}}"
+      bindinput="onSearchInput"
+      confirm-type="search"
+    />
+  </view>
+
+  <!-- 元素筛选 -->
+  <scroll-view class="filter-bar" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="filter-bar__inner">
+      <view
+        class="filter-chip {{elementFilter === -1 ? 'filter-chip--active' : ''}}"
+        bindtap="filterByElement"
+        data-index="-1"
+      >
+        <text>全部</text>
+      </view>
+      <view
+        wx:for="{{elements}}"
+        wx:for-item="name"
+        wx:for-index="idx"
+        wx:key="idx"
+        class="filter-chip filter-chip--{{elementClasses[idx]}} {{elementFilter === idx ? 'filter-chip--active' : ''}}"
+        bindtap="filterByElement"
+        data-index="{{idx}}"
+      >
+        <text>{{name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 计数 -->
+  <view class="pokedex-count">
+    <text class="text-sm text-light">共 {{filteredCount}} / {{totalCount}} 个精灵</text>
+  </view>
+
+  <!-- 精灵列表 -->
+  <view class="sprite-list" wx:if="{{filteredSprites.length > 0}}">
+    <view
+      wx:for="{{filteredSprites}}"
+      wx:key="id"
+      class="sprite-list__item"
+      bindtap="onSpriteTap"
+      data-id="{{item.id}}"
+    >
+      <!-- 序号 -->
+      <view class="sprite-list__num">
+        <text class="sprite-list__num-text">{{item.pokedexNum}}</text>
+      </view>
+      <!-- 精灵卡片 -->
+      <view class="sprite-list__card">
+        <sprite-card
+          spriteId="{{item.id}}"
+          showRarity="{{true}}"
+          size="normal"
+          tappable="{{false}}"
+        />
+      </view>
+      <!-- 异色角标 -->
+      <view class="shiny-badge" wx:if="{{item.hasShiny}}">
+        <text>异色</text>
+      </view>
+      <!-- 区域标签（全部模式下显示） -->
+      <view class="sprite-list__region" wx:if="{{currentRegion === 'all'}}">
+        <text class="text-sm text-lighter">{{item.region === 'windmorn' ? '风眠省' : '洛克里安'}}</text>
+      </view>
+      <!-- 箭头 -->
+      <text class="sprite-list__arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <empty-state
+    wx:else
+    icon="search"
+    text="没有找到匹配的精灵"
+    subtext="试试切换区域或属性筛选"
+  />
+</view>

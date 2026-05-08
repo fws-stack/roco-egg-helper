@@ -35,6 +35,10 @@
   background: #FFF3E0;
 }
 
+.entry-card__icon--pokedex {
+  background: #F3E5F5;
+}
+
 .entry-card__emoji {
   font-size: 40rpx;
 }

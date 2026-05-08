@@ -31,12 +31,42 @@ App({
 
     // 加载蛋参数数据
     this.globalData.eggData = require('./data/egg-data.js').eggs || [];
+
+    // 加载图鉴数据
+    const pokedexData = require('./data/pokedex.js');
+    this.globalData.pokedexData = pokedexData;
+
+    // 构建进化链反向索引: spriteId -> chain
+    const chainBySprite = {};
+    (pokedexData.chains || []).forEach(function(chain) {
+      chain.members.forEach(function(id) {
+        chainBySprite[id] = chain;
+      });
+    });
+    this.globalData.chainBySprite = chainBySprite;
+
+    // 异色索引
+    this.globalData.shinies = pokedexData.shinies || {};
+
+    // 构建精灵所属区域索引
+    const spriteRegion = {};
+    (pokedexData.regions.windmorn || []).forEach(function(id) {
+      spriteRegion[id] = 'windmorn';
+    });
+    (pokedexData.regions.rockorian || []).forEach(function(id) {
+      spriteRegion[id] = 'rockorian';
+    });
+    this.globalData.spriteRegion = spriteRegion;
   },
 
   globalData: {
     spritesMap: {},
     forwardIndex: {},
     reverseIndex: {},
-    eggData: []
+    eggData: [],
+    pokedexData: null,
+    chainBySprite: {},
+    shinies: {},
+    spriteRegion: {}
   }
 });

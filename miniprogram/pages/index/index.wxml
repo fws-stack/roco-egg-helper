@@ -33,6 +33,17 @@
       </view>
       <text class="entry-card__arrow">›</text>
     </view>
+
+    <view class="entry-card" bindtap="goPokedex">
+      <view class="entry-card__icon entry-card__icon--pokedex">
+        <text class="entry-card__emoji">📖</text>
+      </view>
+      <view class="entry-card__content">
+        <text class="entry-card__title">精灵图鉴</text>
+        <text class="entry-card__desc">浏览347种图鉴精灵与进化链</text>
+      </view>
+      <text class="entry-card__arrow">›</text>
+    </view>
   </view>
 
   <!-- 最近查询 -->

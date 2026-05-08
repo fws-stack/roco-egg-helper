@@ -4,6 +4,7 @@
     "pages/forward/forward",
     "pages/reverse/reverse",
     "pages/egg-query/egg-query",
+    "pages/pokedex/pokedex",
     "pages/sprite-detail/sprite-detail"
   ],
   "window": {
@@ -41,6 +42,12 @@
         "text": "蛋参数查询",
         "iconPath": "images/tabbar/egg.png",
         "selectedIconPath": "images/tabbar/egg-active.png"
+      },
+      {
+        "pagePath": "pages/pokedex/pokedex",
+        "text": "图鉴",
+        "iconPath": "images/tabbar/pokedex.png",
+        "selectedIconPath": "images/tabbar/pokedex-active.png"
       }
     ]
   },
@@ -49,6 +56,7 @@
     "sprite-picker": "/components/sprite-picker/sprite-picker",
     "breeding-result": "/components/breeding-result/breeding-result",
     "egg-result": "/components/egg-result/egg-result",
-    "empty-state": "/components/empty-state/empty-state"
+    "empty-state": "/components/empty-state/empty-state",
+    "evolution-chain": "/components/evolution-chain/evolution-chain"
   }
 }

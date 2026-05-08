@@ -1,0 +1,32 @@
+<view class="evo-chain" wx:if="{{hasChain}}">
+  <view class="evo-chain__title">进化链</view>
+  <scroll-view class="evo-chain__scroll" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="evo-chain__track">
+      <block wx:for="{{nodes}}" wx:key="index">
+        <!-- 连接器 -->
+        <view wx:if="{{item.type === 'connector'}}" class="evo-connector">
+          <view class="evo-connector__arrow">→</view>
+          <view class="evo-connector__cond" wx:if="{{item.condition}}">
+            <text class="evo-connector__cond-text">{{item.condition.detail}}</text>
+          </view>
+        </view>
+        <!-- 节点 -->
+        <view wx:else class="evo-node {{item.data.isCurrent ? 'evo-node--current' : ''}}"
+              bindtap="onNodeTap" data-id="{{item.data.id}}">
+          <view class="evo-node__avatar evo-node__avatar--{{item.data.elementClass}}">
+            <image
+              class="evo-node__img"
+              src="/images/sprites/{{item.data.id}}.png"
+              mode="aspectFit"
+            />
+            <text wx:if="{{!item.data.hasImg}}" class="evo-node__fallback">{{item.data.elementName[0]}}</text>
+          </view>
+          <text class="evo-node__name">{{item.data.name}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<view wx:else class="evo-chain--empty">
+  <text class="text-light">暂无进化链数据</text>
+</view>

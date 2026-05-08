@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "精灵图鉴",
+  "usingComponents": {
+    "sprite-card": "/components/sprite-card/sprite-card",
+    "empty-state": "/components/empty-state/empty-state"
+  }
+}

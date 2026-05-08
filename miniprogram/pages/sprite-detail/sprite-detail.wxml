@@ -29,6 +29,48 @@
     <button class="btn-primary" bindtap="goReverse" style="background:#4CAF50;">反查如何获得此精灵</button>
   </view>
 
+  <!-- 进化链 -->
+  <view class="card" wx:if="{{hasChain}}">
+    <evolution-chain spriteId="{{sprite.id}}" chain="{{chain}}" />
+  </view>
+
+  <!-- 异色形态 -->
+  <view class="card" wx:if="{{hasShiny}}">
+    <text class="card-title">异色形态</text>
+    <view class="shiny-compare">
+      <view class="shiny-compare__item">
+        <text class="shiny-compare__label">原形态</text>
+        <view class="shiny-compare__img-wrap sprite-header__img-wrap--{{sprite.elementClass}}">
+          <image
+            wx:if="{{hasImg}}"
+            class="shiny-compare__img"
+            src="/images/sprites/{{sprite.id}}.png"
+            mode="aspectFit"
+          />
+          <text wx:else class="shiny-compare__fallback">{{sprite.name[0]}}</text>
+        </view>
+        <text class="shiny-compare__name text-sm">{{sprite.name}}</text>
+      </view>
+      <view class="shiny-compare__vs">
+        <text class="text-light">VS</text>
+      </view>
+      <view class="shiny-compare__item">
+        <text class="shiny-compare__label shiny-compare__label--shiny">异色形态</text>
+        <view class="shiny-compare__img-wrap shiny-compare__img-wrap--shiny">
+          <image
+            class="shiny-compare__img"
+            src="/images/sprites/shiny/{{sprite.id}}.png"
+            mode="aspectFit"
+            binderror="onShinyImgError"
+          />
+          <text class="shiny-compare__fallback">✨</text>
+        </view>
+        <text class="shiny-compare__name text-sm">{{shiny.name}}</text>
+      </view>
+    </view>
+    <text class="text-sm text-light mt-16" wx:if="{{shiny.desc}}">{{shiny.desc}}</text>
+  </view>
+
   <!-- 作为子代的孵蛋信息 -->
   <view class="card" wx:if="{{asChildResults.length > 0}}">
     <text class="card-title">孵化出 {{sprite.name}} 的组合</text>

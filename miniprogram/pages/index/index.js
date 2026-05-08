@@ -37,6 +37,10 @@ Page({
     wx.switchTab({ url: '/pages/egg-query/egg-query' });
   },
 
+  goPokedex() {
+    wx.switchTab({ url: '/pages/pokedex/pokedex' });
+  },
+
   onHistoryTap(e) {
     const item = e.currentTarget.dataset.item;
     if (item.type === 'forward') {

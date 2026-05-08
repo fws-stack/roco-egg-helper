@@ -9,7 +9,11 @@ Page({
     sprite: null,
     asChildResults: [],
     asParentResults: [],
-    hasImg: false
+    hasImg: false,
+    chain: null,
+    hasChain: false,
+    shiny: null,
+    hasShiny: false
   },
 
   onLoad(options) {
@@ -65,6 +69,20 @@ Page({
       .sort((a, b) => (b.probability ?? 0) - (a.probability ?? 0));
 
     this.setData({ sprite, asChildResults: childResults, asParentResults });
+
+    // 加载进化链数据
+    var chainBySprite = getApp().globalData.chainBySprite || {};
+    var chain = chainBySprite[id];
+    if (chain) {
+      this.setData({ chain: chain, hasChain: true });
+    }
+
+    // 加载异色数据
+    var shinies = getApp().globalData.shinies || {};
+    var shiny = shinies[id];
+    if (shiny) {
+      this.setData({ shiny: shiny, hasShiny: true });
+    }
   },
 
   goForward() {
