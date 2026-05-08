@@ -2,7 +2,7 @@
   <!-- 父精灵选择区 -->
   <view class="forward-select">
     <view class="forward-select__item" bindtap="openPicker" data-target="parentA">
-      <sprite-card spriteId="{{parentA.id || 0}}" />
+      <sprite-card spriteId="{{parentA.id || 0}}" tappable="{{false}}" />
     </view>
 
     <view class="forward-select__plus">
@@ -10,7 +10,7 @@
     </view>
 
     <view class="forward-select__item" bindtap="openPicker" data-target="parentB">
-      <sprite-card spriteId="{{parentB.id || 0}}" />
+      <sprite-card spriteId="{{parentB.id || 0}}" tappable="{{false}}" />
     </view>
   </view>
 

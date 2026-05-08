@@ -2,7 +2,7 @@
   <!-- 目标精灵选择区 -->
   <view class="reverse-select" bindtap="openPicker">
     <text class="reverse-select__label mb-16">目标精灵</text>
-    <sprite-card spriteId="{{target.id || 0}}" />
+    <sprite-card spriteId="{{target.id || 0}}" tappable="{{false}}" />
   </view>
 
   <view class="forward-hint" wx:if="{{!target}}">

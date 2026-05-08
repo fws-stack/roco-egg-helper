@@ -31,9 +31,9 @@ miniprogram/
 │   ├── egg-result/                # 蛋参数结果
 │   └── empty-state/               # 空状态
 ├── data/                          # 数据文件
-│   ├── sprites.js                 # 精灵数据 (90个)
+│   ├── sprites.js                 # 精灵数据 (472个, 18种属性)
 │   ├── breeding.js                # 孵蛋配方
-│   └── egg-data.js                # 蛋参数数据
+│   └── egg-data.js                # 蛋参数数据 (472条)
 ├── utils/                         # 工具函数
 │   ├── breeding.js                # 孵蛋查询算法
 │   ├── egg.js                     # 蛋参数匹配算法

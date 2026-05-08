@@ -9,6 +9,18 @@ Page({
     pickerVisible: false
   },
 
+  onShow() {
+    const pendingId = getApp().globalData.pendingReverseId;
+    if (pendingId) {
+      getApp().globalData.pendingReverseId = null;
+      const sprite = spriteUtil.getSprite(pendingId);
+      if (sprite) {
+        this.setData({ target: { id: pendingId, name: sprite.name } });
+        this.doQuery(pendingId);
+      }
+    }
+  },
+
   openPicker() {
     this.setData({ pickerVisible: true });
   },

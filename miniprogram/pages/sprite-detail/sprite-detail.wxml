@@ -2,11 +2,15 @@
   <!-- 精灵头部信息 -->
   <view class="card sprite-header">
     <view class="sprite-header__top">
-      <image
-        class="sprite-header__img"
-        src="/images/sprites/{{sprite.id}}.png"
-        mode="aspectFit"
-      />
+      <view class="sprite-header__img-wrap sprite-header__img-wrap--{{sprite.elementClass}}">
+        <image
+          wx:if="{{hasImg}}"
+          class="sprite-header__img"
+          src="/images/sprites/{{sprite.id}}.png"
+          mode="aspectFit"
+        />
+        <text wx:else class="sprite-header__img-fallback">{{sprite.name[0]}}</text>
+      </view>
       <view class="sprite-header__info">
         <text class="sprite-header__name">{{sprite.name}}</text>
         <view class="sprite-header__tags mt-16">

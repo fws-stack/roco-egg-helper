@@ -1,5 +1,5 @@
 <view class="picker-overlay {{visible ? 'picker-overlay--show' : ''}}" catchtap="close">
-  <view class="picker-panel" catchtap="">
+  <view class="picker-panel" catchtap="noop">
     <!-- 头部 -->
     <view class="picker-header">
       <text class="picker-title">{{title}}</text>
@@ -15,12 +15,12 @@
         placeholder="{{placeholder}}"
         value="{{keyword}}"
         bindinput="onSearchInput"
-        focus="{{visible}}"
+        bindfocus="onSearchFocus"
       />
     </view>
 
     <!-- 属性筛选 -->
-    <scroll-view class="picker-filters" scroll-x>
+    <scroll-view class="picker-filters" scroll-x enable-flex>
       <view
         class="picker-filter__item {{elementFilter === -1 ? 'picker-filter__item--active' : ''}}"
         data-element="-1"
@@ -29,7 +29,7 @@
         <text>全部</text>
       </view>
       <view
-        wx:for="{{['火','水','草','电','冰','土','石','机械','普通','特殊']}}"
+        wx:for="{{['普通','草','火','水','光','地','冰','龙','电','毒','虫','武','翼','萌','幽','恶','机械','幻']}}"
         wx:key="*this"
         wx:for-index="idx"
         class="picker-filter__item {{elementFilter === idx ? 'picker-filter__item--active' : ''}}"
@@ -41,7 +41,7 @@
     </scroll-view>
 
     <!-- 精灵列表 -->
-    <scroll-view class="picker-list" scroll-y>
+    <scroll-view class="picker-list" scroll-y enable-flex>
       <block wx:if="{{filteredList.length > 0}}">
         <view
           wx:for="{{filteredList}}"
@@ -56,8 +56,8 @@
       <empty-state
         wx:else
         icon="search"
-        text="未找到匹配精灵"
-        subtext="换个关键词试试"
+        text="{{allSprites.length === 0 ? '精灵数据加载中...' : '未找到匹配精灵'}}"
+        subtext="{{allSprites.length === 0 ? '请稍后重试' : '换个关键词试试'}}"
       />
     </scroll-view>
   </view>

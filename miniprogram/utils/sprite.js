@@ -1,6 +1,6 @@
-/** 元素枚举映射 */
-const ELEMENT_MAP = ['火', '水', '草', '电', '冰', '土', '石', '机械', '普通', '特殊'];
-const ELEMENT_CLASS = ['fire', 'water', 'grass', 'electric', 'ice', 'earth', 'rock', 'machine', 'normal', 'special'];
+/** 元素枚举映射 (18种属性) */
+const ELEMENT_MAP = ['普通', '草', '火', '水', '光', '地', '冰', '龙', '电', '毒', '虫', '武', '翼', '萌', '幽', '恶', '机械', '幻'];
+const ELEMENT_CLASS = ['normal', 'grass', 'fire', 'water', 'light', 'earth', 'ice', 'dragon', 'electric', 'poison', 'bug', 'fighting', 'flying', 'fairy', 'ghost', 'dark', 'machine', 'magic'];
 
 /** 稀有度映射 */
 const RARITY_MAP = ['', '普通', '稀有', '精英', '史诗', '传说', '神话'];

@@ -13,6 +13,17 @@ Page({
     pickerExclude: []
   },
 
+  onShow() {
+    const pendingId = getApp().globalData.pendingForwardId;
+    if (pendingId) {
+      getApp().globalData.pendingForwardId = null;
+      const sprite = spriteUtil.getSprite(pendingId);
+      if (sprite) {
+        this.setData({ parentA: { id: pendingId, name: sprite.name }, results: [] });
+      }
+    }
+  },
+
   /**
    * 打开精灵选择器
    */

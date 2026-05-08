@@ -12,16 +12,24 @@ page {
   --color-success: #4CAF50;
   --color-warning: #FF9800;
   --color-danger: #F44336;
+  --color-normal: #AAAAAA;
+  --color-grass: #4CAF50;
   --color-fire: #F44336;
   --color-water: #2196F3;
-  --color-grass: #4CAF50;
-  --color-electric: #FFC107;
-  --color-ice: #00BCD4;
+  --color-light: #FFD54F;
   --color-earth: #8D6E63;
-  --color-rock: #9E9E9E;
+  --color-ice: #00BCD4;
+  --color-dragon: #7C4DFF;
+  --color-electric: #FFC107;
+  --color-poison: #9C27B0;
+  --color-bug: #8BC34A;
+  --color-fighting: #E57373;
+  --color-flying: #90CAF9;
+  --color-fairy: #F48FB1;
+  --color-ghost: #673AB7;
+  --color-dark: #424242;
   --color-machine: #607D8B;
-  --color-normal: #AAAAAA;
-  --color-special: #9C27B0;
+  --color-magic: #E040FB;
   --radius-sm: 8rpx;
   --radius-md: 16rpx;
   --radius-lg: 24rpx;
@@ -130,13 +138,21 @@ page {
   line-height: 1.4;
 }
 
+.tag-normal   { background: var(--color-normal); }
+.tag-grass    { background: var(--color-grass); }
 .tag-fire     { background: var(--color-fire); }
 .tag-water    { background: var(--color-water); }
-.tag-grass    { background: var(--color-grass); }
-.tag-electric { background: var(--color-electric); color: #333; }
-.tag-ice      { background: var(--color-ice); }
+.tag-light    { background: var(--color-light); color: #333; }
 .tag-earth    { background: var(--color-earth); }
-.tag-rock     { background: var(--color-rock); }
+.tag-ice      { background: var(--color-ice); }
+.tag-dragon   { background: var(--color-dragon); }
+.tag-electric { background: var(--color-electric); color: #333; }
+.tag-poison   { background: var(--color-poison); }
+.tag-bug      { background: var(--color-bug); color: #333; }
+.tag-fighting { background: var(--color-fighting); }
+.tag-flying   { background: var(--color-flying); color: #333; }
+.tag-fairy    { background: var(--color-fairy); }
+.tag-ghost    { background: var(--color-ghost); }
+.tag-dark     { background: var(--color-dark); }
 .tag-machine  { background: var(--color-machine); }
-.tag-normal   { background: var(--color-normal); }
-.tag-special  { background: var(--color-special); }
+.tag-magic    { background: var(--color-magic); }

@@ -39,6 +39,10 @@ Component({
   observers: {
     'visible'(val) {
       if (val) {
+        // 每次打开时重新加载精灵列表，确保数据最新
+        if (this.data.allSprites.length === 0) {
+          this.setData({ allSprites: spriteUtil.getAllSprites() });
+        }
         this.setData({ keyword: '', elementFilter: -1 });
         this.filterList();
       }
@@ -46,6 +50,12 @@ Component({
   },
 
   methods: {
+    noop() {},
+
+    onSearchFocus() {
+      // 搜索框获得焦点时不做额外操作
+    },
+
     onSearchInput(e) {
       this.setData({ keyword: e.detail.value });
       clearTimeout(this._searchTimer);

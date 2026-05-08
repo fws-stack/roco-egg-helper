@@ -1,10 +1,12 @@
 <view class="sprite-card {{size === 'small' ? 'sprite-card--small' : ''}}" bindtap="onTap" wx:if="{{sprite}}">
-  <view class="sprite-card__avatar">
+  <view class="sprite-card__avatar sprite-card__avatar--{{sprite.elementClass}}">
     <image
+      wx:if="{{hasImg}}"
       class="sprite-card__img"
       src="/images/sprites/{{spriteId}}.png"
       mode="aspectFit"
     />
+    <text wx:else class="sprite-card__fallback-text">{{sprite.elementName[0]}}</text>
   </view>
   <view class="sprite-card__info">
     <text class="sprite-card__name">{{sprite.name}}</text>

@@ -3,14 +3,53 @@
   align-items: flex-start;
 }
 
-.sprite-header__img {
+.sprite-header__img-wrap {
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
   background: var(--color-bg);
   margin-right: 24rpx;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.sprite-header__img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.sprite-header__img-fallback {
+  font-size: 48rpx;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* 18种元素底色 */
+.sprite-header__img-wrap--normal   { background: var(--color-normal); }
+.sprite-header__img-wrap--grass    { background: var(--color-grass); }
+.sprite-header__img-wrap--fire     { background: var(--color-fire); }
+.sprite-header__img-wrap--water    { background: var(--color-water); }
+.sprite-header__img-wrap--light    { background: var(--color-light); }
+.sprite-header__img-wrap--light .sprite-header__img-fallback    { color: #333; }
+.sprite-header__img-wrap--earth    { background: var(--color-earth); }
+.sprite-header__img-wrap--ice      { background: var(--color-ice); }
+.sprite-header__img-wrap--dragon   { background: var(--color-dragon); }
+.sprite-header__img-wrap--electric { background: var(--color-electric); }
+.sprite-header__img-wrap--electric .sprite-header__img-fallback { color: #333; }
+.sprite-header__img-wrap--poison   { background: var(--color-poison); }
+.sprite-header__img-wrap--bug      { background: var(--color-bug); }
+.sprite-header__img-wrap--bug .sprite-header__img-fallback      { color: #333; }
+.sprite-header__img-wrap--fighting { background: var(--color-fighting); }
+.sprite-header__img-wrap--flying   { background: var(--color-flying); }
+.sprite-header__img-wrap--flying .sprite-header__img-fallback   { color: #333; }
+.sprite-header__img-wrap--fairy    { background: var(--color-fairy); }
+.sprite-header__img-wrap--ghost    { background: var(--color-ghost); }
+.sprite-header__img-wrap--dark     { background: var(--color-dark); }
+.sprite-header__img-wrap--machine  { background: var(--color-machine); }
+.sprite-header__img-wrap--magic    { background: var(--color-magic); }
 
 .sprite-header__info {
   flex: 1;

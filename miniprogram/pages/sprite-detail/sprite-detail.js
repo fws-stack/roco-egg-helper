@@ -1,15 +1,20 @@
 const spriteUtil = require('../../utils/sprite.js');
 const breeding = require('../../utils/breeding.js');
 
+// 已知有本地图片的精灵ID
+const IMG_IDS = new Set([1, 2, 4, 5]);
+
 Page({
   data: {
     sprite: null,
     asChildResults: [],
-    asParentResults: []
+    asParentResults: [],
+    hasImg: false
   },
 
   onLoad(options) {
     const id = Number(options.id);
+    this.setData({ hasImg: IMG_IDS.has(id) });
     const sprite = spriteUtil.getSprite(id);
     if (!sprite) {
       wx.showToast({ title: '精灵不存在', icon: 'none' });
@@ -63,10 +68,12 @@ Page({
   },
 
   goForward() {
+    getApp().globalData.pendingForwardId = this.data.sprite.id;
     wx.switchTab({ url: '/pages/forward/forward' });
   },
 
   goReverse() {
+    getApp().globalData.pendingReverseId = this.data.sprite.id;
     wx.switchTab({ url: '/pages/reverse/reverse' });
   }
 });
