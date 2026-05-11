@@ -1,20 +1,5 @@
 <view class="page-container">
-  <!-- 区域切换 -->
-  <view class="region-tabs">
-    <view
-      wx:for="{{regionTabs}}"
-      wx:key="key"
-      class="region-tab {{currentRegion === item.key ? 'region-tab--active' : ''}}"
-      bindtap="switchRegion"
-      data-key="{{item.key}}"
-    >
-      <text>{{item.label}}</text>
-    </view>
-  </view>
-
-  <!-- 元素筛选 -->
-
-  <!-- 搜索 -->
+  <!-- 搜索栏 -->
   <view class="search-bar">
     <input
       class="search-input"
@@ -25,71 +10,66 @@
     />
   </view>
 
-  <!-- 元素筛选 -->
+  <!-- 属性筛选 -->
   <scroll-view class="filter-bar" scroll-x enhanced show-scrollbar="{{false}}">
     <view class="filter-bar__inner">
       <view
         class="filter-chip {{elementFilter === -1 ? 'filter-chip--active' : ''}}"
         bindtap="filterByElement"
         data-index="-1"
-      >
-        <text>全部</text>
-      </view>
+      >全部</view>
       <view
         wx:for="{{elements}}"
         wx:for-item="name"
         wx:for-index="idx"
         wx:key="idx"
-        class="filter-chip filter-chip--{{elementClasses[idx]}} {{elementFilter === idx ? 'filter-chip--active' : ''}}"
+        class="filter-chip {{elementFilter === idx ? 'filter-chip--active' : ''}}"
         bindtap="filterByElement"
         data-index="{{idx}}"
-      >
-        <text>{{name}}</text>
-      </view>
+      >{{name}}</view>
     </view>
   </scroll-view>
 
-  <!-- 计数 -->
-  <view class="pokedex-count">
-    <text class="text-sm text-light">共 {{filteredCount}} / {{totalCount}} 个精灵</text>
+  <!-- 区域切换 -->
+  <view class="region-tabs">
+    <view
+      wx:for="{{regionTabs}}"
+      wx:key="key"
+      class="region-tab {{currentRegion === item.key ? 'region-tab--active' : ''}}"
+      bindtap="switchRegion"
+      data-key="{{item.key}}"
+    >{{item.label}}</view>
   </view>
 
-  <!-- 精灵列表 -->
-  <view class="sprite-list" wx:if="{{filteredSprites.length > 0}}">
+  <!-- 计数 -->
+  <view class="pokedex-count">
+    <text>共 {{filteredCount}} / {{totalCount}} 只精灵</text>
+  </view>
+
+  <!-- 双列网格 -->
+  <view class="sprite-grid" wx:if="{{filteredSprites.length > 0}}">
     <view
       wx:for="{{filteredSprites}}"
       wx:key="id"
-      class="sprite-list__item"
+      class="sprite-grid__card"
       bindtap="onSpriteTap"
       data-id="{{item.id}}"
     >
-      <!-- 序号 -->
-      <view class="sprite-list__num">
-        <text class="sprite-list__num-text">{{item.pokedexNum}}</text>
-      </view>
-      <!-- 精灵卡片 -->
-      <view class="sprite-list__card">
-        <sprite-card
-          spriteId="{{item.id}}"
-          showRarity="{{true}}"
-          size="normal"
-          tappable="{{false}}"
+      <view class="sprite-grid__avatar sprite-grid__avatar--{{item.elementClass}}">
+        <image
+          wx:if="{{item.id}}"
+          class="sprite-grid__img"
+          src="/images/sprites/{{item.id}}.png"
+          mode="aspectFit"
         />
+        <text wx:else class="sprite-grid__fallback">{{item.name[0]}}</text>
       </view>
-      <!-- 异色角标 -->
-      <view class="shiny-badge" wx:if="{{item.hasShiny}}">
-        <text>异色</text>
-      </view>
-      <!-- 区域标签（全部模式下显示） -->
-      <view class="sprite-list__region" wx:if="{{currentRegion === 'all'}}">
-        <text class="text-sm text-lighter">{{item.region === 'windmorn' ? '风眠省' : '洛克里安'}}</text>
-      </view>
-      <!-- 箭头 -->
-      <text class="sprite-list__arrow">›</text>
+      <text class="sprite-grid__name">{{item.name}}</text>
+      <text class="sprite-grid__meta">#{{item.pokedexNum}} {{item.elementName}}系</text>
+      <view class="sprite-grid__shiny" wx:if="{{item.hasShiny}}">异色</view>
     </view>
   </view>
 
-  <!-- 空状态 -->
   <empty-state
     wx:else
     icon="search"

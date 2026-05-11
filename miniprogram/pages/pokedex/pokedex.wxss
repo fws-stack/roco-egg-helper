@@ -1,27 +1,3 @@
-/* 区域切换 */
-.region-tabs {
-  display: flex;
-  background: #fff;
-  border-radius: var(--radius-md);
-  padding: 8rpx;
-  margin-bottom: 24rpx;
-  box-shadow: var(--shadow-card);
-}
-.region-tab {
-  flex: 1;
-  text-align: center;
-  padding: 16rpx 0;
-  font-size: 28rpx;
-  color: var(--color-text-light);
-  border-radius: var(--radius-sm);
-  transition: all 0.2s;
-}
-.region-tab--active {
-  background: var(--color-primary);
-  color: #fff;
-  font-weight: bold;
-}
-
 /* 搜索 */
 .search-bar {
   margin-bottom: 16rpx;
@@ -29,12 +5,13 @@
 .search-input {
   width: 100%;
   height: 72rpx;
-  background: #fff;
+  background: var(--color-card);
   border-radius: var(--radius-md);
   padding: 0 24rpx;
   font-size: 28rpx;
   box-sizing: border-box;
-  box-shadow: var(--shadow-card);
+  border: 1rpx solid var(--color-border);
+  color: var(--color-text);
 }
 
 /* 属性筛选 */
@@ -44,106 +21,140 @@
 }
 .filter-bar__inner {
   display: flex;
-  padding: 8rpx 0;
+  padding: 4rpx 0;
   gap: 12rpx;
 }
 .filter-chip {
   display: inline-flex;
   align-items: center;
-  padding: 10rpx 20rpx;
-  border-radius: 40rpx;
+  padding: 10rpx 24rpx;
+  border-radius: 32rpx;
   font-size: 24rpx;
-  color: var(--color-text-light);
-  background: #fff;
-  border: 2rpx solid var(--color-border);
+  color: var(--color-text-secondary);
+  background: var(--color-card);
+  border: 1rpx solid var(--color-border);
   flex-shrink: 0;
 }
 .filter-chip--active {
   color: #fff;
-  border-color: var(--color-primary);
-  background: var(--color-primary);
+  border-color: var(--color-gold);
+  background: var(--color-gold);
 }
-.filter-chip--normal.filter-chip--active { background: #C4B5A5; border-color: #C4B5A5; }
-.filter-chip--grass.filter-chip--active { background: #4CAF50; border-color: #4CAF50; }
-.filter-chip--fire.filter-chip--active { background: #F44336; border-color: #F44336; }
-.filter-chip--water.filter-chip--active { background: #2196F3; border-color: #2196F3; }
-.filter-chip--light.filter-chip--active { background: #FFC107; border-color: #FFC107; }
-.filter-chip--earth.filter-chip--active { background: #795548; border-color: #795548; }
-.filter-chip--ice.filter-chip--active { background: #00BCD4; border-color: #00BCD4; }
-.filter-chip--dragon.filter-chip--active { background: #9C27B0; border-color: #9C27B0; }
-.filter-chip--electric.filter-chip--active { background: #FFA000; border-color: #FFA000; }
-.filter-chip--poison.filter-chip--active { background: #9C27B0; border-color: #9C27B0; }
-.filter-chip--bug.filter-chip--active { background: #8BC34A; border-color: #8BC34A; }
-.filter-chip--fighting.filter-chip--active { background: #FF5722; border-color: #FF5722; }
-.filter-chip--flying.filter-chip--active { background: #87CEEB; border-color: #87CEEB; }
-.filter-chip--fairy.filter-chip--active { background: #E91E63; border-color: #E91E63; }
-.filter-chip--ghost.filter-chip--active { background: #607D8B; border-color: #607D8B; }
-.filter-chip--dark.filter-chip--active { background: #424242; border-color: #424242; }
-.filter-chip--machine.filter-chip--active { background: #78909C; border-color: #78909C; }
-.filter-chip--magic.filter-chip--active { background: #BA68C8; border-color: #BA68C8; }
+
+/* 区域切换 */
+.region-tabs {
+  display: flex;
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 6rpx;
+  margin-bottom: 16rpx;
+  border: 1rpx solid var(--color-border);
+}
+.region-tab {
+  flex: 1;
+  text-align: center;
+  padding: 14rpx 0;
+  font-size: 26rpx;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.region-tab--active {
+  background: var(--color-gold);
+  color: #fff;
+  font-weight: bold;
+}
 
 /* 计数 */
 .pokedex-count {
+  text-align: center;
   padding: 8rpx 0 16rpx;
+  font-size: 24rpx;
+  color: var(--color-text-lighter);
 }
 
-/* 列表 */
-.sprite-list {
+/* 双列网格 */
+.sprite-grid {
   display: flex;
-  flex-direction: column;
-  gap: 2rpx;
+  flex-wrap: wrap;
+  gap: 12rpx;
 }
-.sprite-list__item {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  padding: 16rpx 20rpx;
+.sprite-grid__card {
+  width: calc(50% - 6rpx);
+  background: var(--color-card);
   border-radius: var(--radius-sm);
+  padding: 20rpx 16rpx 16rpx;
+  text-align: center;
+  border: 1rpx solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  box-sizing: border-box;
   position: relative;
 }
-.sprite-list__item:active {
-  background: #f8f8f8;
+.sprite-grid__card:active {
+  background: #FBF8F0;
 }
-
-/* 序号 */
-.sprite-list__num {
-  width: 60rpx;
-  flex-shrink: 0;
-  text-align: center;
+.sprite-grid__avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin: 0 auto 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.sprite-list__num-text {
-  font-size: 26rpx;
-  color: var(--color-text-light);
-  font-weight: 500;
+.sprite-grid__img {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
 }
-
-/* 卡片 */
-.sprite-list__card {
-  flex: 1;
-  min-width: 0;
-}
-
-/* 异色角标 */
-.shiny-badge {
-  flex-shrink: 0;
-  background: linear-gradient(135deg, #FFD700, #FFA000);
-  color: #fff;
-  font-size: 20rpx;
-  padding: 4rpx 12rpx;
-  border-radius: 16rpx;
-  margin-left: 8rpx;
-}
-
-/* 区域标签 */
-.sprite-list__region {
-  margin-left: 12rpx;
-  flex-shrink: 0;
-}
-
-/* 箭头 */
-.sprite-list__arrow {
+.sprite-grid__fallback {
   font-size: 36rpx;
-  color: var(--color-text-lighter);
-  flex-shrink: 0;
-  margin-left: 8rpx;
+  color: #fff;
+  font-weight: bold;
+}
+/* 18元素头像底色 */
+.sprite-grid__avatar--normal   { background: var(--color-normal); }
+.sprite-grid__avatar--grass    { background: var(--color-grass); }
+.sprite-grid__avatar--fire     { background: var(--color-fire); }
+.sprite-grid__avatar--water    { background: var(--color-water); }
+.sprite-grid__avatar--light    { background: var(--color-light); }
+.sprite-grid__avatar--light .sprite-grid__fallback { color: #333; }
+.sprite-grid__avatar--earth    { background: var(--color-earth); }
+.sprite-grid__avatar--ice      { background: var(--color-ice); }
+.sprite-grid__avatar--dragon   { background: var(--color-dragon); }
+.sprite-grid__avatar--electric { background: var(--color-electric); }
+.sprite-grid__avatar--electric .sprite-grid__fallback { color: #333; }
+.sprite-grid__avatar--poison   { background: var(--color-poison); }
+.sprite-grid__avatar--bug      { background: var(--color-bug); }
+.sprite-grid__avatar--bug .sprite-grid__fallback { color: #333; }
+.sprite-grid__avatar--fighting { background: var(--color-fighting); }
+.sprite-grid__avatar--flying   { background: var(--color-flying); }
+.sprite-grid__avatar--flying .sprite-grid__fallback { color: #333; }
+.sprite-grid__avatar--fairy    { background: var(--color-fairy); }
+.sprite-grid__avatar--ghost    { background: var(--color-ghost); }
+.sprite-grid__avatar--dark     { background: var(--color-dark); }
+.sprite-grid__avatar--machine  { background: var(--color-machine); }
+.sprite-grid__avatar--magic    { background: var(--color-magic); }
+
+.sprite-grid__name {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: var(--color-text);
+  display: block;
+  margin-bottom: 4rpx;
+}
+.sprite-grid__meta {
+  font-size: 20rpx;
+  color: var(--color-text-light);
+  display: block;
+}
+.sprite-grid__shiny {
+  position: absolute;
+  top: 8rpx;
+  right: 8rpx;
+  background: var(--color-warm);
+  color: #fff;
+  font-size: 18rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 12rpx;
 }
