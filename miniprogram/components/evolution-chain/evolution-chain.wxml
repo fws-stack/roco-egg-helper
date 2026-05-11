@@ -1,31 +1,39 @@
 <view class="evo-chain" wx:if="{{hasChain}}">
   <view class="evo-chain__title">进化链</view>
-  <scroll-view class="evo-chain__scroll" scroll-x enhanced show-scrollbar="{{false}}">
-    <view class="evo-chain__track">
-      <block wx:for="{{nodes}}" wx:key="index">
-        <!-- 连接器 -->
-        <view wx:if="{{item.type === 'connector'}}" class="evo-connector">
-          <view class="evo-connector__arrow">→</view>
-          <view class="evo-connector__cond" wx:if="{{item.condition}}">
-            <text class="evo-connector__cond-text">{{item.condition.detail}}</text>
-          </view>
+  <view class="evo-chain__body">
+    <block wx:for="{{nodes}}" wx:key="index">
+      <!-- 精灵节点 -->
+      <view
+        wx:if="{{item.type === 'node'}}"
+        class="evo-node {{item.data.isCurrent ? 'evo-node--current' : ''}}"
+        bindtap="onNodeTap"
+        data-id="{{item.data.id}}"
+      >
+        <view class="evo-node__avatar evo-node__avatar--{{item.data.elementClass}}">
+          <text class="evo-node__fallback">{{item.data.elementName[0]}}</text>
         </view>
-        <!-- 节点 -->
-        <view wx:else class="evo-node {{item.data.isCurrent ? 'evo-node--current' : ''}}"
-              bindtap="onNodeTap" data-id="{{item.data.id}}">
-          <view class="evo-node__avatar evo-node__avatar--{{item.data.elementClass}}">
-            <image
-              class="evo-node__img"
-              src="/images/sprites/{{item.data.id}}.png"
-              mode="aspectFit"
-            />
-            <text wx:if="{{!item.data.hasImg}}" class="evo-node__fallback">{{item.data.elementName[0]}}</text>
-          </view>
+        <view class="evo-node__info">
           <text class="evo-node__name">{{item.data.name}}</text>
+          <text class="evo-node__tag evo-node__tag--{{item.data.elementClass}}">{{item.data.elementName}}</text>
         </view>
-      </block>
-    </view>
-  </scroll-view>
+        <view wx:if="{{item.data.isCurrent}}" class="evo-node__badge">
+          <text>当前</text>
+        </view>
+      </view>
+
+      <!-- 进化连接 + 条件 -->
+      <view wx:if="{{item.type === 'connector'}}" class="evo-connector">
+        <view class="evo-connector__line"></view>
+        <view class="evo-connector__arrow">▼</view>
+        <view wx:if="{{item.condition}}" class="evo-connector__cond">
+          <text class="evo-connector__cond-icon">⚡</text>
+          <text class="evo-connector__cond-text">{{item.condition.detail}}</text>
+        </view>
+        <view class="evo-connector__arrow">▼</view>
+        <view class="evo-connector__line"></view>
+      </view>
+    </block>
+  </view>
 </view>
 <view wx:else class="evo-chain--empty">
   <text class="text-light">暂无进化链数据</text>

@@ -13,3 +13,7 @@ project.private.config.json
 
 # 依赖（如有）
 node_modules/
+
+# Web 网站
+web/node_modules/
+web/dist/

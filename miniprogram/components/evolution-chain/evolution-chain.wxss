@@ -1,46 +1,48 @@
 .evo-chain {
-  padding: 24rpx 0;
+  padding: 8rpx 0;
 }
 .evo-chain__title {
-  font-size: 28rpx;
+  font-size: 30rpx;
   font-weight: bold;
   color: #333;
-  margin-bottom: 16rpx;
-  padding: 0 24rpx;
+  margin-bottom: 24rpx;
 }
-.evo-chain__scroll {
-  width: 100%;
-  white-space: nowrap;
-}
-.evo-chain__track {
-  display: flex;
-  align-items: flex-start;
-  padding: 16rpx 24rpx;
-  min-width: 100%;
-}
-
-/* 节点 */
-.evo-node {
+.evo-chain__body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 140rpx;
-  padding: 12rpx 8rpx;
-  transition: transform 0.2s;
-  flex-shrink: 0;
+}
+
+/* ---- 精灵节点 ---- */
+.evo-node {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20rpx 28rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  border: 2rpx solid #eee;
+  transition: all 0.2s;
+  gap: 24rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+.evo-node:active {
+  background: #f8f8f8;
 }
 .evo-node--current {
-  transform: scale(1.08);
+  border-color: #4A90D9;
+  background: #EBF4FD;
+  box-shadow: 0 0 0 6rpx rgba(74, 144, 217, 0.15);
 }
 .evo-node__avatar {
-  width: 80rpx;
-  height: 80rpx;
+  width: 88rpx;
+  height: 88rpx;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8rpx;
-  position: relative;
+  flex-shrink: 0;
 }
 .evo-node__avatar--normal { background: #C4B5A5; }
 .evo-node__avatar--grass { background: #4CAF50; }
@@ -60,56 +62,101 @@
 .evo-node__avatar--dark { background: #424242; }
 .evo-node__avatar--machine { background: #78909C; }
 .evo-node__avatar--magic { background: #BA68C8; }
-.evo-node--current .evo-node__avatar {
-  box-shadow: 0 0 0 6rpx rgba(74, 144, 217, 0.3);
-}
-.evo-node__img {
-  width: 64rpx;
-  height: 64rpx;
-}
 .evo-node__fallback {
-  font-size: 32rpx;
+  font-size: 36rpx;
   font-weight: bold;
   color: #fff;
 }
+.evo-node__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
 .evo-node__name {
-  font-size: 22rpx;
+  font-size: 30rpx;
+  font-weight: 600;
   color: #333;
-  text-align: center;
-  max-width: 130rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+}
+.evo-node__tag {
+  display: inline-block;
+  padding: 2rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+  color: #fff;
+  align-self: flex-start;
+}
+.evo-node__tag--normal { background: #C4B5A5; }
+.evo-node__tag--grass { background: #4CAF50; }
+.evo-node__tag--fire { background: #F44336; }
+.evo-node__tag--water { background: #2196F3; }
+.evo-node__tag--light { background: #FFC107; color: #333; }
+.evo-node__tag--earth { background: #795548; }
+.evo-node__tag--ice { background: #00BCD4; }
+.evo-node__tag--dragon { background: #9C27B0; }
+.evo-node__tag--electric { background: #FFA000; }
+.evo-node__tag--poison { background: #9C27B0; }
+.evo-node__tag--bug { background: #8BC34A; }
+.evo-node__tag--fighting { background: #FF5722; }
+.evo-node__tag--flying { background: #87CEEB; color: #333; }
+.evo-node__tag--fairy { background: #E91E63; }
+.evo-node__tag--ghost { background: #607D8B; }
+.evo-node__tag--dark { background: #424242; }
+.evo-node__tag--machine { background: #78909C; }
+.evo-node__tag--magic { background: #BA68C8; }
+.evo-node__badge {
+  position: absolute;
+  top: -16rpx;
+  right: 20rpx;
+  background: #4A90D9;
+  color: #fff;
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 4rpx 20rpx;
+  border-radius: 20rpx;
 }
 
-/* 连接器 */
+/* ---- 进化连接器 ---- */
 .evo-connector {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-width: 100rpx;
-  flex-shrink: 0;
-  padding-top: 20rpx;
+  padding: 4rpx 0;
+  width: 100%;
+}
+.evo-connector__line {
+  width: 3rpx;
+  height: 16rpx;
+  background: #d0d0d0;
 }
 .evo-connector__arrow {
-  font-size: 28rpx;
-  color: var(--color-primary);
-  font-weight: bold;
+  font-size: 20rpx;
+  color: #bbb;
+  line-height: 1;
 }
 .evo-connector__cond {
-  margin-top: 4rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  background: linear-gradient(135deg, #FFF8E1, #FFF3CD);
+  border: 1rpx solid #FFE082;
+  border-radius: 16rpx;
+  padding: 16rpx 28rpx;
+  margin: 8rpx 0;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.evo-connector__cond-icon {
+  font-size: 32rpx;
+  flex-shrink: 0;
 }
 .evo-connector__cond-text {
-  font-size: 18rpx;
-  color: var(--color-text-light);
-  background: #f0f0f0;
-  padding: 4rpx 8rpx;
-  border-radius: 6rpx;
-  text-align: center;
-  max-width: 160rpx;
-  display: inline-block;
-  white-space: normal;
+  font-size: 26rpx;
+  color: #E65100;
+  font-weight: 600;
+  line-height: 1.5;
   word-break: break-all;
 }
 
@@ -117,3 +164,4 @@
   padding: 32rpx;
   text-align: center;
 }
+.text-light { color: var(--color-text-light); }
