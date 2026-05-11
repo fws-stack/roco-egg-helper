@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/egg-query/egg-query",
     "pages/pokedex/pokedex",
-    "pages/sprite-detail/sprite-detail",
     "pages/more/more"
   ],
   "window": {
@@ -33,6 +32,15 @@
     ]
   },
   "lazyCodeLoading": "requiredComponents",
+  "subPackages": [
+    {
+      "root": "subpackages/sprites",
+      "name": "sprites",
+      "pages": [
+        "pages/sprite-detail/sprite-detail"
+      ]
+    }
+  ],
   "usingComponents": {
     "sprite-card": "/components/sprite-card/sprite-card",
     "egg-result": "/components/egg-result/egg-result",

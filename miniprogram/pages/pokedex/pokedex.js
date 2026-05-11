@@ -1,4 +1,5 @@
 const spriteUtil = require('../../utils/sprite.js');
+const IMG_IDS = require('../../data/sprites-img-ids.js');
 
 Page({
   data: {
@@ -43,6 +44,7 @@ Page({
         sprite.pokedexNum = pokedexNum;
         sprite.hasShiny = !!shinies[id];
         sprite.region = spriteRegion[id] || '';
+        sprite.hasImg = IMG_IDS.has(id);
         sprites.push(sprite);
       }
     });
@@ -59,6 +61,7 @@ Page({
         if (sprite) {
           sprite.hasShiny = !!shinies[id];
           sprite.region = spriteRegion[id] || '';
+          sprite.hasImg = IMG_IDS.has(id);
           sprites.push(sprite);
         }
       }
@@ -92,12 +95,22 @@ Page({
   onSpriteTap(e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/sprite-detail/sprite-detail?id=' + id
+      url: '/subpackages/sprites/pages/sprite-detail/sprite-detail?id=' + id
     });
   },
 
   onSearchInput(e) {
     this.setData({ searchKeyword: e.detail.value });
+    this.applyFilter();
+  },
+
+  onGridImgError(e) {
+    var id = e.currentTarget.dataset.id;
+    var sprites = this.data.sprites.map(function(s) {
+      if (s.id === id) return Object.assign({}, s, { hasImg: false });
+      return s;
+    });
+    this.setData({ sprites: sprites });
     this.applyFilter();
   },
 

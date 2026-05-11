@@ -1,0 +1,119 @@
+<view class="page-container" wx:if="{{sprite}}">
+  <!-- 精灵头部 -->
+  <view class="card sprite-header">
+    <view class="sprite-header__top">
+      <!-- 左侧：精灵图片 -->
+      <view
+        class="sprite-header__img-box {{imgBoxClass}}"
+      >
+        <image
+          wx:if="{{hasImg}}"
+          class="sprite-header__img"
+          src="/subpackages/sprites/images/{{sprite.id}}.png"
+          mode="aspectFit"
+          binderror="onImgError"
+        />
+        <text wx:else class="sprite-header__img-fallback">{{sprite.name[0]}}</text>
+      </view>
+
+      <!-- 右侧：精灵信息 -->
+      <view class="sprite-header__info">
+        <text class="sprite-header__num">NO. {{sprite.pokedexNum || '???'}}</text>
+        <text class="sprite-header__name">{{sprite.name}}</text>
+        <view class="sprite-header__divider"></view>
+        <view class="sprite-header__tags">
+          <text class="tag tag-{{sprite.elementClass}}">{{sprite.elementName}}</text>
+          <text class="sprite-header__rarity">{{sprite.rarityStars}}</text>
+          <text class="sprite-header__rarity-label">（{{sprite.rarityName}}）</text>
+        </view>
+        <text class="sprite-header__desc" wx:if="{{sprite.description}}">{{sprite.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 进化链 -->
+  <view class="card" wx:if="{{hasChain}}">
+    <evolution-chain spriteId="{{sprite.id}}" chain="{{chain}}" />
+  </view>
+
+  <!-- 异色形态 -->
+  <view class="card" wx:if="{{hasShiny}}">
+    <text class="card-title">异色形态</text>
+    <view class="shiny-compare">
+      <view class="shiny-compare__item">
+        <text class="shiny-compare__label">原形态</text>
+        <view class="shiny-compare__img-wrap sprite-header__img-box--{{sprite.elementClass}}">
+          <image
+            wx:if="{{hasImg}}"
+            class="shiny-compare__img"
+            src="/subpackages/sprites/images/{{sprite.id}}.png"
+            mode="aspectFit"
+          />
+          <text wx:else class="shiny-compare__fallback">{{sprite.name[0]}}</text>
+        </view>
+        <text class="shiny-compare__name text-sm">{{sprite.name}}</text>
+      </view>
+      <view class="shiny-compare__vs">
+        <text class="text-light">VS</text>
+      </view>
+      <view class="shiny-compare__item">
+        <text class="shiny-compare__label shiny-compare__label--shiny">异色形态</text>
+        <view class="shiny-compare__img-wrap shiny-compare__img-wrap--shiny">
+          <image
+            class="shiny-compare__img"
+            src="/subpackages/sprites/images/shiny/{{sprite.id}}.png"
+            mode="aspectFit"
+            binderror="onShinyImgError"
+          />
+          <text class="shiny-compare__fallback">✨</text>
+        </view>
+        <text class="shiny-compare__name text-sm">{{shiny.name}}</text>
+      </view>
+    </view>
+    <text class="text-sm text-light mt-16" wx:if="{{shiny.desc}}">{{shiny.desc}}</text>
+  </view>
+
+  <!-- 作为子代的孵蛋信息 -->
+  <view class="card" wx:if="{{asChildResults.length > 0}}">
+    <text class="card-title">孵化出 {{sprite.name}} 的组合</text>
+    <view wx:for="{{asChildResults}}" wx:key="index" class="detail-breeding__item">
+      <view class="flex-row align-center">
+        <navigator url="/subpackages/sprites/pages/sprite-detail/sprite-detail?id={{item.parentAId}}" class="detail-breeding__link">
+          {{item.parentAName}}
+        </navigator>
+        <text class="detail-breeding__plus"> + </text>
+        <navigator url="/subpackages/sprites/pages/sprite-detail/sprite-detail?id={{item.parentBId}}" class="detail-breeding__link">
+          {{item.parentBName}}
+        </navigator>
+        <text class="detail-breeding__plus"> → </text>
+        <text class="detail-breeding__name text-bold">{{sprite.name}}</text>
+      </view>
+      <text class="text-sm text-light" wx:if="{{item.probability != null}}">概率 {{item.probText}}</text>
+    </view>
+  </view>
+
+  <!-- 作为父代的孵蛋信息 -->
+  <view class="card" wx:if="{{asParentResults.length > 0}}">
+    <text class="card-title">{{sprite.name}} 作为父代可孵化</text>
+    <view wx:for="{{asParentResults}}" wx:key="index" class="detail-breeding__item">
+      <view class="flex-row align-center">
+        <text class="detail-breeding__name text-bold">{{sprite.name}}</text>
+        <text class="detail-breeding__plus"> + </text>
+        <navigator url="/subpackages/sprites/pages/sprite-detail/sprite-detail?id={{item.otherParentId}}" class="detail-breeding__link">
+          {{item.otherParentName}}
+        </navigator>
+        <text class="detail-breeding__plus"> → </text>
+        <navigator url="/subpackages/sprites/pages/sprite-detail/sprite-detail?id={{item.childId}}" class="detail-breeding__link">
+          {{item.childName}}
+        </navigator>
+      </view>
+      <text class="text-sm text-light" wx:if="{{item.probability != null}}">概率 {{item.probText}}</text>
+    </view>
+  </view>
+
+  <empty-state
+    wx:if="{{asChildResults.length === 0 && asParentResults.length === 0}}"
+    icon="box"
+    text="暂无此精灵的孵蛋数据"
+  />
+</view>

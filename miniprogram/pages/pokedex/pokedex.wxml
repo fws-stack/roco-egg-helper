@@ -57,10 +57,12 @@
     >
       <view class="sprite-grid__avatar sprite-grid__avatar--{{item.elementClass}}">
         <image
-          wx:if="{{item.id}}"
+          wx:if="{{item.hasImg}}"
           class="sprite-grid__img"
-          src="/images/sprites/{{item.id}}.png"
+          src="/subpackages/sprites/images/{{item.id}}.png"
           mode="aspectFit"
+          binderror="onGridImgError"
+          data-id="{{item.id}}"
         />
         <text wx:else class="sprite-grid__fallback">{{item.name[0]}}</text>
       </view>

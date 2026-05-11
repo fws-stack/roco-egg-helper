@@ -108,7 +108,7 @@ Component({
     onNodeTap: function(e) {
       var id = e.currentTarget.dataset.id;
       if (id) {
-        wx.navigateTo({ url: '/pages/sprite-detail/sprite-detail?id=' + id });
+        wx.navigateTo({ url: '/subpackages/sprites/pages/sprite-detail/sprite-detail?id=' + id });
       }
     }
   }

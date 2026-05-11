@@ -3,8 +3,9 @@
     <image
       wx:if="{{hasImg}}"
       class="sprite-card__img"
-      src="/images/sprites/{{spriteId}}.png"
+      src="/subpackages/sprites/images/{{spriteId}}.png"
       mode="aspectFit"
+      binderror="onImgError"
     />
     <text wx:else class="sprite-card__fallback-text">{{sprite.name[0]}}</text>
   </view>

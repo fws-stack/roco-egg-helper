@@ -1,8 +1,5 @@
 const spriteUtil = require('../../utils/sprite.js');
-
-// 已知有本地图片的精灵ID (从 /images/sprites/ 读取)
-// 新增图片后在此数组中添加对应ID即可
-const IMG_IDS = new Set([1, 2, 4, 5]);
+const IMG_IDS = require('../../data/sprites-img-ids.js');
 
 Component({
   properties: {
@@ -16,7 +13,7 @@ Component({
     },
     size: {
       type: String,
-      value: 'normal' // 'small' | 'normal'
+      value: 'normal'
     },
     tappable: {
       type: Boolean,
@@ -48,11 +45,15 @@ Component({
       this.setData({ sprite });
     },
 
+    onImgError() {
+      this.setData({ hasImg: false });
+    },
+
     onTap() {
       if (!this.properties.tappable || !this.data.sprite) return;
       this.triggerEvent('tap', { spriteId: this.properties.spriteId });
       wx.navigateTo({
-        url: `/pages/sprite-detail/sprite-detail?id=${this.properties.spriteId}`
+        url: `/subpackages/sprites/pages/sprite-detail/sprite-detail?id=${this.properties.spriteId}`
       });
     }
   }
