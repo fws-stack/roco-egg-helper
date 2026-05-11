@@ -4,7 +4,8 @@
 .evo-chain__title {
   font-size: 30rpx;
   font-weight: bold;
-  color: #333;
+  color: var(--color-text);
+  font-family: var(--font-serif);
   margin-bottom: 24rpx;
 }
 .evo-chain__body {
@@ -13,57 +14,56 @@
   align-items: center;
 }
 
-/* ---- 精灵节点 ---- */
+/* 精灵节点 */
 .evo-node {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 20rpx 28rpx;
-  background: #fff;
-  border-radius: 24rpx;
-  border: 2rpx solid #eee;
-  transition: all 0.2s;
-  gap: 24rpx;
+  padding: 20rpx 24rpx;
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  border: 1rpx solid var(--color-border);
+  gap: 20rpx;
   position: relative;
   box-sizing: border-box;
 }
 .evo-node:active {
-  background: #f8f8f8;
+  background: #FBF8F0;
 }
 .evo-node--current {
-  border-color: #4A90D9;
-  background: #EBF4FD;
-  box-shadow: 0 0 0 6rpx rgba(74, 144, 217, 0.15);
+  border-color: var(--color-gold);
+  background: #FBF6ED;
+  box-shadow: 0 0 0 6rpx rgba(201,169,110,0.12);
 }
 .evo-node__avatar {
-  width: 88rpx;
-  height: 88rpx;
+  width: 80rpx;
+  height: 80rpx;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.evo-node__avatar--normal { background: #C4B5A5; }
-.evo-node__avatar--grass { background: #4CAF50; }
-.evo-node__avatar--fire { background: #F44336; }
-.evo-node__avatar--water { background: #2196F3; }
-.evo-node__avatar--light { background: #FFC107; }
-.evo-node__avatar--earth { background: #795548; }
-.evo-node__avatar--ice { background: #00BCD4; }
-.evo-node__avatar--dragon { background: #9C27B0; }
-.evo-node__avatar--electric { background: #FFEB3B; }
-.evo-node__avatar--poison { background: #9C27B0; }
-.evo-node__avatar--bug { background: #8BC34A; }
-.evo-node__avatar--fighting { background: #FF5722; }
-.evo-node__avatar--flying { background: #87CEEB; }
-.evo-node__avatar--fairy { background: #E91E63; }
-.evo-node__avatar--ghost { background: #607D8B; }
-.evo-node__avatar--dark { background: #424242; }
-.evo-node__avatar--machine { background: #78909C; }
-.evo-node__avatar--magic { background: #BA68C8; }
+.evo-node__avatar--normal { background: var(--color-normal); }
+.evo-node__avatar--grass { background: var(--color-grass); }
+.evo-node__avatar--fire { background: var(--color-fire); }
+.evo-node__avatar--water { background: var(--color-water); }
+.evo-node__avatar--light { background: var(--color-light); }
+.evo-node__avatar--earth { background: var(--color-earth); }
+.evo-node__avatar--ice { background: var(--color-ice); }
+.evo-node__avatar--dragon { background: var(--color-dragon); }
+.evo-node__avatar--electric { background: var(--color-electric); }
+.evo-node__avatar--poison { background: var(--color-poison); }
+.evo-node__avatar--bug { background: var(--color-bug); }
+.evo-node__avatar--fighting { background: var(--color-fighting); }
+.evo-node__avatar--flying { background: var(--color-flying); }
+.evo-node__avatar--fairy { background: var(--color-fairy); }
+.evo-node__avatar--ghost { background: var(--color-ghost); }
+.evo-node__avatar--dark { background: var(--color-dark); }
+.evo-node__avatar--machine { background: var(--color-machine); }
+.evo-node__avatar--magic { background: var(--color-magic); }
 .evo-node__fallback {
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-weight: bold;
   color: #fff;
 }
@@ -75,9 +75,10 @@
   gap: 6rpx;
 }
 .evo-node__name {
-  font-size: 30rpx;
-  font-weight: 600;
-  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--color-text);
+  font-family: var(--font-serif);
 }
 .evo-node__tag {
   display: inline-block;
@@ -87,37 +88,37 @@
   color: #fff;
   align-self: flex-start;
 }
-.evo-node__tag--normal { background: #C4B5A5; }
-.evo-node__tag--grass { background: #4CAF50; }
-.evo-node__tag--fire { background: #F44336; }
-.evo-node__tag--water { background: #2196F3; }
-.evo-node__tag--light { background: #FFC107; color: #333; }
-.evo-node__tag--earth { background: #795548; }
-.evo-node__tag--ice { background: #00BCD4; }
-.evo-node__tag--dragon { background: #9C27B0; }
-.evo-node__tag--electric { background: #FFA000; }
-.evo-node__tag--poison { background: #9C27B0; }
-.evo-node__tag--bug { background: #8BC34A; }
-.evo-node__tag--fighting { background: #FF5722; }
-.evo-node__tag--flying { background: #87CEEB; color: #333; }
-.evo-node__tag--fairy { background: #E91E63; }
-.evo-node__tag--ghost { background: #607D8B; }
-.evo-node__tag--dark { background: #424242; }
-.evo-node__tag--machine { background: #78909C; }
-.evo-node__tag--magic { background: #BA68C8; }
+.evo-node__tag--normal { background: var(--color-normal); }
+.evo-node__tag--grass { background: var(--color-grass); }
+.evo-node__tag--fire { background: var(--color-fire); }
+.evo-node__tag--water { background: var(--color-water); }
+.evo-node__tag--light { background: var(--color-light); color: #333; }
+.evo-node__tag--earth { background: var(--color-earth); }
+.evo-node__tag--ice { background: var(--color-ice); }
+.evo-node__tag--dragon { background: var(--color-dragon); }
+.evo-node__tag--electric { background: var(--color-electric); }
+.evo-node__tag--poison { background: var(--color-poison); }
+.evo-node__tag--bug { background: var(--color-bug); }
+.evo-node__tag--fighting { background: var(--color-fighting); }
+.evo-node__tag--flying { background: var(--color-flying); color: #333; }
+.evo-node__tag--fairy { background: var(--color-fairy); }
+.evo-node__tag--ghost { background: var(--color-ghost); }
+.evo-node__tag--dark { background: var(--color-dark); }
+.evo-node__tag--machine { background: var(--color-machine); }
+.evo-node__tag--magic { background: var(--color-magic); }
 .evo-node__badge {
   position: absolute;
-  top: -16rpx;
+  top: -14rpx;
   right: 20rpx;
-  background: #4A90D9;
+  background: var(--color-gold);
   color: #fff;
-  font-size: 22rpx;
+  font-size: 20rpx;
   font-weight: 600;
-  padding: 4rpx 20rpx;
-  border-radius: 20rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 16rpx;
 }
 
-/* ---- 进化连接器 ---- */
+/* 进化连接器 */
 .evo-connector {
   display: flex;
   flex-direction: column;
@@ -126,38 +127,32 @@
   width: 100%;
 }
 .evo-connector__line {
-  width: 3rpx;
+  width: 2rpx;
   height: 16rpx;
-  background: #d0d0d0;
+  background: var(--color-border);
 }
 .evo-connector__arrow {
-  font-size: 20rpx;
-  color: #bbb;
+  font-size: 18rpx;
+  color: var(--color-gold);
   line-height: 1;
 }
 .evo-connector__cond {
   display: flex;
   align-items: center;
-  gap: 16rpx;
-  background: linear-gradient(135deg, #FFF8E1, #FFF3CD);
-  border: 1rpx solid #FFE082;
-  border-radius: 16rpx;
-  padding: 16rpx 28rpx;
-  margin: 8rpx 0;
-  width: auto;
+  gap: 12rpx;
+  background: #FBF6ED;
+  border: 1rpx solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12rpx 20rpx;
+  margin: 6rpx 0;
   max-width: 100%;
   box-sizing: border-box;
 }
-.evo-connector__cond-icon {
-  font-size: 32rpx;
-  flex-shrink: 0;
-}
 .evo-connector__cond-text {
-  font-size: 26rpx;
-  color: #E65100;
-  font-weight: 600;
+  font-size: 24rpx;
+  color: var(--color-text-secondary);
+  font-weight: 500;
   line-height: 1.5;
-  word-break: break-all;
 }
 
 .evo-chain--empty {

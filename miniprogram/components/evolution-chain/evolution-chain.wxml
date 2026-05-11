@@ -1,5 +1,5 @@
 <view class="evo-chain" wx:if="{{hasChain}}">
-  <view class="evo-chain__title">进化链</view>
+  <text class="evo-chain__title">进化链</text>
   <view class="evo-chain__body">
     <block wx:for="{{nodes}}" wx:key="index">
       <!-- 精灵节点 -->
@@ -10,26 +10,23 @@
         data-id="{{item.data.id}}"
       >
         <view class="evo-node__avatar evo-node__avatar--{{item.data.elementClass}}">
-          <text class="evo-node__fallback">{{item.data.elementName[0]}}</text>
+          <text class="evo-node__fallback">{{item.data.name[0]}}</text>
         </view>
         <view class="evo-node__info">
           <text class="evo-node__name">{{item.data.name}}</text>
           <text class="evo-node__tag evo-node__tag--{{item.data.elementClass}}">{{item.data.elementName}}</text>
         </view>
-        <view wx:if="{{item.data.isCurrent}}" class="evo-node__badge">
-          <text>当前</text>
-        </view>
+        <view wx:if="{{item.data.isCurrent}}" class="evo-node__badge">当前</view>
       </view>
 
-      <!-- 进化连接 + 条件 -->
+      <!-- 进化连接 -->
       <view wx:if="{{item.type === 'connector'}}" class="evo-connector">
         <view class="evo-connector__line"></view>
-        <view class="evo-connector__arrow">▼</view>
+        <text class="evo-connector__arrow">▼</text>
         <view wx:if="{{item.condition}}" class="evo-connector__cond">
-          <text class="evo-connector__cond-icon">⚡</text>
           <text class="evo-connector__cond-text">{{item.condition.detail}}</text>
         </view>
-        <view class="evo-connector__arrow">▼</view>
+        <text class="evo-connector__arrow">▼</text>
         <view class="evo-connector__line"></view>
       </view>
     </block>
