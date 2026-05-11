@@ -1,43 +1,49 @@
-/* 颜色变量 */
+/* ===== 色彩变量（暖色羊皮纸） ===== */
 page {
-  --color-primary: #4A90D9;
-  --color-primary-light: #6BA5E7;
-  --color-primary-dark: #3A7BC8;
-  --color-bg: #F5F5F5;
-  --color-white: #FFFFFF;
-  --color-text: #333333;
-  --color-text-light: #999999;
-  --color-text-lighter: #CCCCCC;
-  --color-border: #E5E5E5;
-  --color-success: #4CAF50;
-  --color-warning: #FF9800;
-  --color-danger: #F44336;
-  --color-normal: #AAAAAA;
+  --color-bg: #FBF8F0;
+  --color-card: #FFFFFF;
+  --color-gold: #C9A96E;
+  --color-gold-light: #D4C5A0;
+  --color-text: #5D4E37;
+  --color-text-secondary: #8B7355;
+  --color-text-light: #B8A890;
+  --color-text-lighter: #C9B99E;
+  --color-green: #4A6741;
+  --color-warm: #D4A574;
+  --color-border: #E8DCC8;
+  --color-border-light: #EDE5D5;
+  --color-success: #4A6741;
+  --color-warning: #D4A574;
+  --color-danger: #C0392B;
+
+  /* 保留元素色（用于头像底色/标签，这些需要鲜明区分） */
+  --color-normal: #C4B5A5;
   --color-grass: #4CAF50;
   --color-fire: #F44336;
   --color-water: #2196F3;
-  --color-light: #FFD54F;
-  --color-earth: #8D6E63;
+  --color-light: #FFC107;
+  --color-earth: #795548;
   --color-ice: #00BCD4;
   --color-dragon: #7C4DFF;
-  --color-electric: #FFC107;
+  --color-electric: #FFA000;
   --color-poison: #9C27B0;
   --color-bug: #8BC34A;
-  --color-fighting: #E57373;
-  --color-flying: #90CAF9;
-  --color-fairy: #F48FB1;
-  --color-ghost: #673AB7;
+  --color-fighting: #FF5722;
+  --color-flying: #87CEEB;
+  --color-fairy: #E91E63;
+  --color-ghost: #607D8B;
   --color-dark: #424242;
-  --color-machine: #607D8B;
-  --color-magic: #E040FB;
+  --color-machine: #78909C;
+  --color-magic: #BA68C8;
+
   --radius-sm: 8rpx;
-  --radius-md: 16rpx;
-  --radius-lg: 24rpx;
-  --shadow-card: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
-  --shadow-popup: 0 -4rpx 20rpx rgba(0, 0, 0, 0.15);
+  --radius-md: 12rpx;
+  --radius-lg: 20rpx;
+  --shadow-card: 0 2rpx 12rpx rgba(139,115,85,0.06);
+  --font-serif: Georgia, "Times New Roman", serif;
 }
 
-/* 通用布局 */
+/* ===== 通用布局 ===== */
 .page-container {
   min-height: 100vh;
   padding: 24rpx;
@@ -45,68 +51,46 @@ page {
 }
 
 .card {
-  background: var(--color-white);
+  background: var(--color-card);
   border-radius: var(--radius-md);
   padding: 24rpx;
   margin-bottom: 24rpx;
+  border: 1rpx solid var(--color-border);
   box-shadow: var(--shadow-card);
 }
 
 .card-title {
   font-size: 30rpx;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--color-text);
+  font-family: var(--font-serif);
   margin-bottom: 16rpx;
 }
 
-/* 按钮 */
+/* ===== 按钮 ===== */
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-white);
+  background: var(--color-gold);
+  color: #fff;
   border-radius: var(--radius-sm);
   padding: 16rpx 32rpx;
   font-size: 28rpx;
   text-align: center;
   border: none;
 }
-
 .btn-primary:active {
-  background: var(--color-primary-dark);
+  background: #B8995E;
 }
 
-/* flex 工具 */
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+/* ===== flex 工具 ===== */
+.flex-row { display: flex; flex-direction: row; align-items: center; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.align-center { align-items: center; }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.flex-1 {
-  flex: 1;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.align-center {
-  align-items: center;
-}
-
-/* 间距 */
+/* ===== 间距 ===== */
 .mt-16 { margin-top: 16rpx; }
 .mt-24 { margin-top: 24rpx; }
 .mb-16 { margin-bottom: 16rpx; }
@@ -118,7 +102,7 @@ page {
 .p-16  { padding: 16rpx; }
 .p-24  { padding: 24rpx; }
 
-/* 文本 */
+/* ===== 文本 ===== */
 .text-center { text-align: center; }
 .text-sm  { font-size: 24rpx; }
 .text-md  { font-size: 28rpx; }
@@ -128,16 +112,15 @@ page {
 .text-light { color: var(--color-text-light); }
 .text-lighter { color: var(--color-text-lighter); }
 
-/* 标签 */
+/* ===== 标签(保留元素色) ===== */
 .tag {
   display: inline-block;
   padding: 4rpx 12rpx;
   border-radius: 6rpx;
   font-size: 20rpx;
-  color: var(--color-white);
+  color: #fff;
   line-height: 1.4;
 }
-
 .tag-normal   { background: var(--color-normal); }
 .tag-grass    { background: var(--color-grass); }
 .tag-fire     { background: var(--color-fire); }
@@ -146,7 +129,7 @@ page {
 .tag-earth    { background: var(--color-earth); }
 .tag-ice      { background: var(--color-ice); }
 .tag-dragon   { background: var(--color-dragon); }
-.tag-electric { background: var(--color-electric); color: #333; }
+.tag-electric { background: var(--color-electric); }
 .tag-poison   { background: var(--color-poison); }
 .tag-bug      { background: var(--color-bug); color: #333; }
 .tag-fighting { background: var(--color-fighting); }
