@@ -1,0 +1,25 @@
+<view class="page-container">
+  <view class="brand-header">
+    <text class="brand-header__label">MORE</text>
+    <text class="brand-header__title">更多功能</text>
+    <view class="brand-header__divider"></view>
+  </view>
+
+  <view class="entry-list">
+    <view class="entry-card" bindtap="goEggQuery">
+      <view class="entry-card__icon entry-card__icon--egg">🥚</view>
+      <view class="entry-card__content">
+        <text class="entry-card__title">蛋参数查询</text>
+        <text class="entry-card__desc">输入蛋的长和重判断精灵</text>
+      </view>
+      <text class="entry-card__arrow">→</text>
+    </view>
+  </view>
+
+  <view class="about-card">
+    <text class="about-card__title">关于</text>
+    <text class="about-card__text">洛手攻略大全 v1.0</text>
+    <text class="about-card__text">基于洛克王国世界手游数据整理</text>
+    <text class="about-card__text">精灵图鉴与孵蛋查询工具</text>
+  </view>
+</view>
