@@ -15,6 +15,8 @@ page {
   --color-success: #4A6741;
   --color-warning: #D4A574;
   --color-danger: #C0392B;
+  --color-primary: var(--color-gold);    /* 向后兼容旧代码引用 */
+  --color-white: var(--color-card);      /* 向后兼容旧代码引用 */
 
   /* 保留元素色（用于头像底色/标签，这些需要鲜明区分） */
   --color-normal: #C4B5A5;
