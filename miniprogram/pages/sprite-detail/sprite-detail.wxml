@@ -1,5 +1,5 @@
 <view class="page-container" wx:if="{{sprite}}">
-  <!-- 精灵头部信息 -->
+  <!-- 精灵头部 -->
   <view class="card sprite-header">
     <view class="sprite-header__top">
       <view class="sprite-header__img-wrap sprite-header__img-wrap--{{sprite.elementClass}}">
@@ -12,21 +12,17 @@
         <text wx:else class="sprite-header__img-fallback">{{sprite.name[0]}}</text>
       </view>
       <view class="sprite-header__info">
+        <text class="sprite-header__num">NO. {{sprite.pokedexNum || '???'}}</text>
         <text class="sprite-header__name">{{sprite.name}}</text>
-        <view class="sprite-header__tags mt-16">
+        <view class="sprite-header__divider"></view>
+        <view class="sprite-header__tags">
           <text class="tag tag-{{sprite.elementClass}}">{{sprite.elementName}}</text>
           <text class="sprite-header__rarity">{{sprite.rarityStars}}</text>
-          <text class="text-sm text-light">（{{sprite.rarityName}}）</text>
+          <text class="sprite-header__rarity-label">（{{sprite.rarityName}}）</text>
         </view>
-        <text class="sprite-header__desc mt-16" wx:if="{{sprite.description}}">{{sprite.description}}</text>
+        <text class="sprite-header__desc" wx:if="{{sprite.description}}">{{sprite.description}}</text>
       </view>
     </view>
-  </view>
-
-  <!-- 快捷操作 -->
-  <view class="card sprite-actions">
-    <button class="btn-primary" bindtap="goForward" style="margin-bottom:12rpx;">正查此精灵的孵化公式</button>
-    <button class="btn-primary" bindtap="goReverse" style="background:#4CAF50;">反查如何获得此精灵</button>
   </view>
 
   <!-- 进化链 -->
