@@ -3,18 +3,15 @@
   flex-direction: column;
   gap: 16rpx;
 }
-
 .egg-input__group {
   display: flex;
   flex-direction: column;
 }
-
 .egg-input__label {
   font-size: 26rpx;
-  color: var(--color-text);
+  color: var(--color-text-secondary);
   margin-bottom: 8rpx;
 }
-
 .egg-input__wrap {
   display: flex;
   align-items: center;
@@ -23,7 +20,6 @@
   border: 1rpx solid var(--color-border);
   overflow: hidden;
 }
-
 .egg-input__field {
   flex: 1;
   padding: 20rpx 24rpx;
