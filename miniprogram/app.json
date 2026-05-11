@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/egg-query/egg-query",
     "pages/pokedex/pokedex",
-    "pages/more/more",
     "pages/sprite-detail/sprite-detail",
     "pages/more/more"
   ],
