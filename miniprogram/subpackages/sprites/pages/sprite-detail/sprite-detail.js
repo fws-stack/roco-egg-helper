@@ -1,5 +1,6 @@
 const spriteUtil = require('../../../../utils/sprite.js');
 const IMG_IDS = require('../../../../data/sprites-img-ids.js');
+const IMG_URLS = require('../../../../data/sprite-img-urls.js');
 
 Page({
   data: {
@@ -88,6 +89,13 @@ Page({
 
   onImgError() {
     this.setData({ hasImg: false, imgBoxClass: 'sprite-header__img-box--fallback' });
+  },
+
+  onPreviewImg() {
+    const url = IMG_URLS[this.data.sprite.id];
+    if (url) {
+      wx.previewImage({ current: url, urls: [url] });
+    }
   },
 
   onShinyImgError() {

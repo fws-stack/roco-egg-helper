@@ -5,6 +5,7 @@
       <!-- 左侧：精灵图片 -->
       <view
         class="sprite-header__img-box {{imgBoxClass}}"
+        bindtap="onPreviewImg"
       >
         <image
           wx:if="{{hasImg}}"
@@ -14,6 +15,9 @@
           binderror="onImgError"
         />
         <text wx:else class="sprite-header__img-fallback">{{sprite.name[0]}}</text>
+        <view class="sprite-header__img-tip" wx:if="{{hasImg}}">
+          <text>点击放大</text>
+        </view>
       </view>
 
       <!-- 右侧：精灵信息 -->

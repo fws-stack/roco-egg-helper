@@ -58,6 +58,21 @@
   font-weight: bold;
 }
 
+/* 点击放大提示 */
+.sprite-header__img-tip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 6rpx 0;
+  text-align: center;
+}
+.sprite-header__img-tip text {
+  font-size: 20rpx;
+  color: #fff;
+}
+
 /* 右侧信息 */
 .sprite-header__info {
   flex: 1;
