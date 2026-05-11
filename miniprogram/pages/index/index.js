@@ -2,8 +2,7 @@ const storage = require('../../utils/storage.js');
 
 Page({
   data: {
-    history: [],
-    historySprites: {}
+    history: []
   },
 
   onShow() {
@@ -12,7 +11,7 @@ Page({
 
   loadHistory() {
     const history = storage.getHistory();
-    this.setData({ history, historySprites: {} });
+    this.setData({ history });
   },
 
   goEggQuery() {
@@ -26,7 +25,7 @@ Page({
   onHistoryTap(e) {
     const item = e.currentTarget.dataset.item;
     if (item.type === 'egg') {
-      wx.switchTab({ url: '/pages/egg-query/egg-query' });
+      wx.navigateTo({ url: '/pages/egg-query/egg-query' });
     }
   },
 
