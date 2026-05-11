@@ -1,5 +1,4 @@
 const storage = require('../../utils/storage.js');
-const spriteUtil = require('../../utils/sprite.js');
 
 Page({
   data: {
@@ -13,28 +12,11 @@ Page({
 
   loadHistory() {
     const history = storage.getHistory();
-    const historySprites = {};
-    history.forEach(entry => {
-      if (entry.type === 'forward') {
-        historySprites[entry.parentA] = spriteUtil.getSprite(entry.parentA);
-        historySprites[entry.parentB] = spriteUtil.getSprite(entry.parentB);
-      } else if (entry.type === 'reverse' || entry.type === 'egg') {
-        historySprites[entry.childId || entry.spriteId] = spriteUtil.getSprite(entry.childId || entry.spriteId);
-      }
-    });
-    this.setData({ history, historySprites });
-  },
-
-  goForward() {
-    wx.switchTab({ url: '/pages/forward/forward' });
-  },
-
-  goReverse() {
-    wx.switchTab({ url: '/pages/reverse/reverse' });
+    this.setData({ history, historySprites: {} });
   },
 
   goEggQuery() {
-    wx.switchTab({ url: '/pages/egg-query/egg-query' });
+    wx.navigateTo({ url: '/pages/egg-query/egg-query' });
   },
 
   goPokedex() {
@@ -43,11 +25,7 @@ Page({
 
   onHistoryTap(e) {
     const item = e.currentTarget.dataset.item;
-    if (item.type === 'forward') {
-      wx.switchTab({ url: '/pages/forward/forward' });
-    } else if (item.type === 'reverse') {
-      wx.switchTab({ url: '/pages/reverse/reverse' });
-    } else if (item.type === 'egg') {
+    if (item.type === 'egg') {
       wx.switchTab({ url: '/pages/egg-query/egg-query' });
     }
   },

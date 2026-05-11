@@ -1,56 +1,37 @@
 <view class="page-container">
+  <!-- 品牌头图 -->
+  <view class="brand-header">
+    <text class="brand-header__label">POKEDEX</text>
+    <text class="brand-header__title">洛手攻略大全</text>
+    <view class="brand-header__divider"></view>
+  </view>
+
   <!-- 入口卡片 -->
   <view class="entry-list">
-    <view class="entry-card" bindtap="goForward">
-      <view class="entry-card__icon entry-card__icon--forward">
-        <text class="entry-card__emoji">🔀</text>
-      </view>
+    <view class="entry-card" bindtap="goPokedex">
+      <view class="entry-card__icon entry-card__icon--pokedex">📖</view>
       <view class="entry-card__content">
-        <text class="entry-card__title">正向查询</text>
-        <text class="entry-card__desc">选择两只父精灵查看孵蛋结果</text>
+        <text class="entry-card__title">精灵图鉴</text>
+        <text class="entry-card__desc">浏览347只图鉴精灵与进化链</text>
       </view>
-      <text class="entry-card__arrow">›</text>
-    </view>
-
-    <view class="entry-card" bindtap="goReverse">
-      <view class="entry-card__icon entry-card__icon--reverse">
-        <text class="entry-card__emoji">🔍</text>
-      </view>
-      <view class="entry-card__content">
-        <text class="entry-card__title">反向查询</text>
-        <text class="entry-card__desc">选择目标精灵反查父母组合</text>
-      </view>
-      <text class="entry-card__arrow">›</text>
+      <text class="entry-card__arrow">→</text>
     </view>
 
     <view class="entry-card" bindtap="goEggQuery">
-      <view class="entry-card__icon entry-card__icon--egg">
-        <text class="entry-card__emoji">🥚</text>
-      </view>
+      <view class="entry-card__icon entry-card__icon--egg">🥚</view>
       <view class="entry-card__content">
         <text class="entry-card__title">蛋参数查询</text>
         <text class="entry-card__desc">输入蛋的长和重判断精灵</text>
       </view>
-      <text class="entry-card__arrow">›</text>
-    </view>
-
-    <view class="entry-card" bindtap="goPokedex">
-      <view class="entry-card__icon entry-card__icon--pokedex">
-        <text class="entry-card__emoji">📖</text>
-      </view>
-      <view class="entry-card__content">
-        <text class="entry-card__title">精灵图鉴</text>
-        <text class="entry-card__desc">浏览347种图鉴精灵与进化链</text>
-      </view>
-      <text class="entry-card__arrow">›</text>
+      <text class="entry-card__arrow">→</text>
     </view>
   </view>
 
   <!-- 最近查询 -->
-  <view class="card" wx:if="{{history.length > 0}}">
-    <view class="flex-row justify-between mb-24">
-      <text class="card-title">最近查询</text>
-      <text class="text-sm text-light" bindtap="clearHistory">清空</text>
+  <view class="history-section" wx:if="{{history.length > 0}}">
+    <view class="history-section__header">
+      <text class="history-section__title">最近查询</text>
+      <text class="history-section__clear" bindtap="clearHistory">清空</text>
     </view>
 
     <view
@@ -60,40 +41,12 @@
       data-item="{{item}}"
       bindtap="onHistoryTap"
     >
-      <!-- 正向查询历史 -->
-      <block wx:if="{{item.type === 'forward'}}">
-        <view class="history-item__type">
-          <text class="tag tag-normal">正查</text>
-        </view>
-        <view class="history-item__content flex-row">
-          <text class="history-item__name">{{historySprites[item.parentA].name || '?'}}</text>
-          <text class="history-item__plus">+</text>
-          <text class="history-item__name">{{historySprites[item.parentB].name || '?'}}</text>
-        </view>
-      </block>
-
-      <!-- 反向查询历史 -->
-      <block wx:if="{{item.type === 'reverse'}}">
-        <view class="history-item__type">
-          <text class="tag tag-water">反查</text>
-        </view>
-        <view class="history-item__content">
-          <text class="history-item__name">{{historySprites[item.childId].name || '?'}}</text>
-        </view>
-      </block>
-
-      <!-- 蛋参数查询历史 -->
       <block wx:if="{{item.type === 'egg'}}">
-        <view class="history-item__type">
-          <text class="tag tag-warning">蛋</text>
-        </view>
-        <view class="history-item__content">
-          <text class="text-sm">长{{item.size}} / 重{{item.weight}}</text>
-        </view>
+        <view class="history-item__badge">蛋</view>
+        <text class="history-item__text">长{{item.size}} / 重{{item.weight}}</text>
       </block>
     </view>
   </view>
 
-  <!-- 无历史 -->
-  <empty-state wx:if="{{history.length === 0}}" icon="box" text="还没有查询记录" subtext="选择一个查询功能开始使用" />
+  <empty-state wx:if="{{history.length === 0}}" icon="box" text="还没有查询记录" subtext="选择一个功能开始使用" />
 </view>

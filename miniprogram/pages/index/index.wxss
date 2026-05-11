@@ -1,103 +1,133 @@
+/* 品牌头图 */
+.brand-header {
+  text-align: center;
+  padding: 40rpx 0 32rpx;
+}
+.brand-header__label {
+  font-size: 20rpx;
+  letter-spacing: 6rpx;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 8rpx;
+}
+.brand-header__title {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  display: block;
+}
+.brand-header__divider {
+  width: 40rpx;
+  height: 2rpx;
+  background: var(--color-gold);
+  margin: 16rpx auto 0;
+}
+
+/* 入口卡片 */
 .entry-list {
   margin-bottom: 32rpx;
 }
-
 .entry-card {
   display: flex;
   align-items: center;
-  background: var(--color-white);
+  background: var(--color-card);
   border-radius: var(--radius-md);
   padding: 28rpx 24rpx;
   margin-bottom: 16rpx;
+  border: 1rpx solid var(--color-border);
   box-shadow: var(--shadow-card);
 }
-
+.entry-card:active {
+  background: #FBF8F0;
+}
 .entry-card__icon {
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 20rpx;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 20rpx;
   flex-shrink: 0;
+  font-size: 36rpx;
 }
-
-.entry-card__icon--forward {
-  background: #E3F2FD;
-}
-
-.entry-card__icon--reverse {
-  background: #E8F5E9;
-}
-
-.entry-card__icon--egg {
-  background: #FFF3E0;
-}
-
 .entry-card__icon--pokedex {
-  background: #F3E5F5;
+  background: #F5EDDC;
 }
-
-.entry-card__emoji {
-  font-size: 40rpx;
+.entry-card__icon--egg {
+  background: #FDF3E0;
 }
-
 .entry-card__content {
   flex: 1;
   min-width: 0;
 }
-
 .entry-card__title {
   font-size: 30rpx;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--color-text);
+  font-family: var(--font-serif);
   display: block;
-  margin-bottom: 6rpx;
+  margin-bottom: 4rpx;
 }
-
 .entry-card__desc {
   font-size: 24rpx;
   color: var(--color-text-light);
 }
-
 .entry-card__arrow {
-  font-size: 36rpx;
-  color: var(--color-text-lighter);
+  font-size: 28rpx;
+  color: var(--color-gold);
   flex-shrink: 0;
   margin-left: 12rpx;
 }
 
 /* 历史记录 */
+.history-section {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 24rpx;
+  border: 1rpx solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+.history-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.history-section__title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: var(--color-text);
+  font-family: var(--font-serif);
+}
+.history-section__clear {
+  font-size: 24rpx;
+  color: var(--color-text-light);
+}
 .history-item {
   display: flex;
   align-items: center;
-  padding: 20rpx 0;
-  border-bottom: 1rpx solid var(--color-border);
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid var(--color-border-light);
 }
-
 .history-item:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
-
-.history-item__type {
-  width: 80rpx;
+.history-item__badge {
+  width: 56rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: #FDF3E0;
+  color: var(--color-gold);
+  font-size: 20rpx;
+  border-radius: 6rpx;
+  margin-right: 16rpx;
   flex-shrink: 0;
 }
-
-.history-item__content {
-  flex: 1;
-  min-width: 0;
-}
-
-.history-item__name {
+.history-item__text {
   font-size: 26rpx;
-  color: var(--color-text);
-}
-
-.history-item__plus {
-  margin: 0 8rpx;
-  color: var(--color-text-light);
-  font-size: 24rpx;
+  color: var(--color-text-secondary);
 }
