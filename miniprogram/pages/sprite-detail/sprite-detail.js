@@ -1,5 +1,4 @@
 const spriteUtil = require('../../utils/sprite.js');
-const breeding = require('../../utils/breeding.js');
 
 // 已知有本地图片的精灵ID
 const IMG_IDS = new Set([1, 2, 4, 5]);
@@ -29,17 +28,18 @@ Page({
     const fmtProb = (prob) => prob != null ? (prob * 100).toFixed(0) + '%' : null;
 
     // 查询有哪些组合可以孵化出此精灵 (作为子代)
-    const reverseResults = breeding.queryReverse(id);
+    const reverseIndex = getApp().globalData.reverseIndex || {};
+    const reverseResults = reverseIndex[id] || [];
     const childResults = reverseResults.map(r => {
-      const p1 = spriteUtil.getSprite(r.parentIds[0]);
-      const p2 = spriteUtil.getSprite(r.parentIds[1]);
+      const p1 = spriteUtil.getSprite(r.p[0]);
+      const p2 = spriteUtil.getSprite(r.p[1]);
       return {
-        parentAId: r.parentIds[0],
+        parentAId: r.p[0],
         parentAName: p1?.name || '?',
-        parentBId: r.parentIds[1],
+        parentBId: r.p[1],
         parentBName: p2?.name || '?',
-        probability: r.probability,
-        probText: fmtProb(r.probability)
+        probability: r.prob,
+        probText: fmtProb(r.prob)
       };
     });
 
@@ -85,13 +85,4 @@ Page({
     }
   },
 
-  goForward() {
-    getApp().globalData.pendingForwardId = this.data.sprite.id;
-    wx.switchTab({ url: '/pages/forward/forward' });
-  },
-
-  goReverse() {
-    getApp().globalData.pendingReverseId = this.data.sprite.id;
-    wx.switchTab({ url: '/pages/reverse/reverse' });
-  }
 });

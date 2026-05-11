@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "sprite-card": "/components/sprite-card/sprite-card",
-    "sprite-picker": "/components/sprite-picker/sprite-picker",
-    "breeding-result": "/components/breeding-result/breeding-result"
-  }
-}
