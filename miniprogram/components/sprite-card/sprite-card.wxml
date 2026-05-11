@@ -6,7 +6,7 @@
       src="/images/sprites/{{spriteId}}.png"
       mode="aspectFit"
     />
-    <text wx:else class="sprite-card__fallback-text">{{sprite.elementName[0]}}</text>
+    <text wx:else class="sprite-card__fallback-text">{{sprite.name[0]}}</text>
   </view>
   <view class="sprite-card__info">
     <text class="sprite-card__name">{{sprite.name}}</text>
@@ -16,12 +16,12 @@
     </view>
   </view>
   <view class="sprite-card__arrow" wx:if="{{tappable}}">
-    <text class="text-lighter">›</text>
+    <text>→</text>
   </view>
 </view>
 <view class="sprite-card sprite-card--empty" wx:else>
   <view class="sprite-card__avatar sprite-card__avatar--empty">
-    <text class="text-lighter">?</text>
+    <text>?</text>
   </view>
   <view class="sprite-card__info">
     <text class="text-light">选择精灵</text>

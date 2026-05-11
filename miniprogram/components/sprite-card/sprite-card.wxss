@@ -1,119 +1,107 @@
 .sprite-card {
   display: flex;
   align-items: center;
-  background: var(--color-white);
-  border-radius: var(--radius-md);
+  background: var(--color-card);
+  border-radius: var(--radius-sm);
   padding: 20rpx 24rpx;
+  border: 1rpx solid var(--color-border-light);
   box-shadow: var(--shadow-card);
 }
-
 .sprite-card--small {
   padding: 12rpx 16rpx;
-  border-radius: var(--radius-sm);
 }
-
 .sprite-card--empty {
   opacity: 0.5;
 }
-
 .sprite-card__avatar {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
-  background: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 20rpx;
   flex-shrink: 0;
+  border: 2rpx solid var(--color-border);
 }
-
 .sprite-card--small .sprite-card__avatar {
   width: 56rpx;
   height: 56rpx;
   margin-right: 12rpx;
 }
-
 .sprite-card__avatar--empty {
   background: var(--color-bg);
+  border-color: var(--color-border);
 }
-
 .sprite-card__img {
   width: 60rpx;
   height: 60rpx;
+  border-radius: 50%;
 }
-
 .sprite-card--small .sprite-card__img {
   width: 40rpx;
   height: 40rpx;
 }
-
-/* 图片加载失败时的文字占位 */
 .sprite-card__fallback-text {
   font-size: 28rpx;
   color: #fff;
   font-weight: 600;
-  line-height: 1;
 }
-
 .sprite-card--small .sprite-card__fallback-text {
   font-size: 20rpx;
 }
 
-/* 各元素类型头像底色 */
-.sprite-card__avatar--normal   { background: var(--color-normal); }
-.sprite-card__avatar--grass    { background: var(--color-grass); }
-.sprite-card__avatar--fire     { background: var(--color-fire); }
-.sprite-card__avatar--water    { background: var(--color-water); }
-.sprite-card__avatar--light    { background: var(--color-light); }
+/* 18元素头像底色 */
+.sprite-card__avatar--normal   { background: var(--color-normal); border-color: var(--color-normal); }
+.sprite-card__avatar--grass    { background: var(--color-grass); border-color: var(--color-grass); }
+.sprite-card__avatar--fire     { background: var(--color-fire); border-color: var(--color-fire); }
+.sprite-card__avatar--water    { background: var(--color-water); border-color: var(--color-water); }
+.sprite-card__avatar--light    { background: var(--color-light); border-color: var(--color-light); }
 .sprite-card__avatar--light .sprite-card__fallback-text    { color: #333; }
-.sprite-card__avatar--earth    { background: var(--color-earth); }
-.sprite-card__avatar--ice      { background: var(--color-ice); }
-.sprite-card__avatar--dragon   { background: var(--color-dragon); }
-.sprite-card__avatar--electric { background: var(--color-electric); }
+.sprite-card__avatar--earth    { background: var(--color-earth); border-color: var(--color-earth); }
+.sprite-card__avatar--ice      { background: var(--color-ice); border-color: var(--color-ice); }
+.sprite-card__avatar--dragon   { background: var(--color-dragon); border-color: var(--color-dragon); }
+.sprite-card__avatar--electric { background: var(--color-electric); border-color: var(--color-electric); }
 .sprite-card__avatar--electric .sprite-card__fallback-text { color: #333; }
-.sprite-card__avatar--poison   { background: var(--color-poison); }
-.sprite-card__avatar--bug      { background: var(--color-bug); }
+.sprite-card__avatar--poison   { background: var(--color-poison); border-color: var(--color-poison); }
+.sprite-card__avatar--bug      { background: var(--color-bug); border-color: var(--color-bug); }
 .sprite-card__avatar--bug .sprite-card__fallback-text      { color: #333; }
-.sprite-card__avatar--fighting { background: var(--color-fighting); }
-.sprite-card__avatar--flying   { background: var(--color-flying); }
+.sprite-card__avatar--fighting { background: var(--color-fighting); border-color: var(--color-fighting); }
+.sprite-card__avatar--flying   { background: var(--color-flying); border-color: var(--color-flying); }
 .sprite-card__avatar--flying .sprite-card__fallback-text   { color: #333; }
-.sprite-card__avatar--fairy    { background: var(--color-fairy); }
-.sprite-card__avatar--ghost    { background: var(--color-ghost); }
-.sprite-card__avatar--dark     { background: var(--color-dark); }
-.sprite-card__avatar--machine  { background: var(--color-machine); }
-.sprite-card__avatar--magic    { background: var(--color-magic); }
+.sprite-card__avatar--fairy    { background: var(--color-fairy); border-color: var(--color-fairy); }
+.sprite-card__avatar--ghost    { background: var(--color-ghost); border-color: var(--color-ghost); }
+.sprite-card__avatar--dark     { background: var(--color-dark); border-color: var(--color-dark); }
+.sprite-card__avatar--machine  { background: var(--color-machine); border-color: var(--color-machine); }
+.sprite-card__avatar--magic    { background: var(--color-magic); border-color: var(--color-magic); }
 
 .sprite-card__info {
   flex: 1;
   min-width: 0;
 }
-
 .sprite-card__name {
   font-size: 28rpx;
-  font-weight: 500;
+  font-weight: bold;
   color: var(--color-text);
+  font-family: var(--font-serif);
   display: block;
   margin-bottom: 6rpx;
 }
-
 .sprite-card--small .sprite-card__name {
   font-size: 24rpx;
 }
-
 .sprite-card__tags {
   display: flex;
   align-items: center;
   gap: 8rpx;
 }
-
 .sprite-card__rarity {
   font-size: 18rpx;
-  color: var(--color-warning);
+  color: var(--color-warm);
 }
-
 .sprite-card__arrow {
   margin-left: 12rpx;
-  font-size: 36rpx;
+  font-size: 32rpx;
+  color: var(--color-gold);
   flex-shrink: 0;
 }
