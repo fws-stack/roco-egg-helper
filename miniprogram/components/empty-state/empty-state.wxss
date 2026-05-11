@@ -12,6 +12,7 @@
 
 .empty-state__emoji {
   font-size: 80rpx;
+  opacity: 0.6;
 }
 
 .empty-state__text {

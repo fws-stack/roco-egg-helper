@@ -8,28 +8,24 @@
 
 .egg-result__summary-text {
   font-size: 26rpx;
-  color: var(--color-text-light);
+  color: var(--color-text-secondary);
 }
 
 .egg-result__item {
   position: relative;
   margin-bottom: 16rpx;
   padding: 16rpx;
-  background: var(--color-white);
+  background: var(--color-card);
   border-radius: var(--radius-md);
+  border: 1rpx solid var(--color-border);
   box-shadow: var(--shadow-card);
 }
-
-.egg-result__item--best {
-  border: 2rpx solid var(--color-primary);
-}
-
 .egg-result__badge {
   position: absolute;
   top: -1rpx;
   right: 16rpx;
-  background: var(--color-primary);
-  color: var(--color-white);
+  background: var(--color-gold);
+  color: #fff;
   font-size: 20rpx;
   padding: 2rpx 16rpx;
   border-radius: 0 0 8rpx 8rpx;
@@ -38,7 +34,7 @@
 .egg-result__detail {
   margin-top: 16rpx;
   padding-top: 16rpx;
-  border-top: 1rpx solid var(--color-border);
+  border-top: 1rpx solid var(--color-border-light);
 }
 
 .egg-result__row {
